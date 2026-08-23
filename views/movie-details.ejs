@@ -95,23 +95,23 @@
                                         <% theaterNames.forEach(theaterName => { 
                                             const theaterData = theatersForDate[theaterName];
                                         %>
-                                            <div class="p-3 rounded border" style="background: rgba(15, 23, 42, 0.6); border-color: var(--border-glass) !important;">
+                                            <div class="p-3 rounded border" style="background: #162036; border-color: var(--border-glass) !important;">
                                                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
                                                     <div>
                                                         <h5 class="text-light mb-0"><%= theaterName %></h5>
-                                                        <span class="badge bg-info text-dark mt-1"><%= theaterData.screenType %></span>
-                                                        <span class="text-muted small ms-2"><i class="fas fa-map-marker-alt"></i> CineVerse Grand Mall, Central Wing</span>
+                                                        <span class="badge bg-info text-dark mt-1 fw-bold"><%= theaterData.screenType %></span>
+                                                        <span class="text-muted small ms-2"><i class="fas fa-map-marker-alt text-danger"></i> CineVerse Grand Mall, Central Wing</span>
                                                     </div>
-                                                    <span class="text-muted small"><i class="fas fa-ticket-alt text-warning"></i> Cancellation Available</span>
+                                                    <span class="badge bg-dark border border-warning text-warning"><i class="fas fa-ticket-alt me-1"></i> Instant Confirmation</span>
                                                 </div>
 
                                                 <!-- Showtime Buttons -->
                                                 <div class="d-flex flex-wrap gap-3">
                                                     <% theaterData.shows.forEach(show => { %>
-                                                        <a href="/book?show=<%= show.id %>" class="btn btn-outline-info text-start p-2 px-3 rounded text-decoration-none transition-hover">
-                                                            <div class="fw-bold text-light"><%= show.time %></div>
-                                                            <div class="text-warning small font-monospace">₹<%= show.basePrice %></div>
-                                                            <small class="text-muted" style="font-size: 0.7rem;"><%= show.slotLabel %></small>
+                                                        <a href="/book?show=<%= show.id %>" class="btn btn-cinema-outline text-start p-2 px-3 rounded text-decoration-none transition-hover" style="border-color: #38bdf8; background: #121a2d; min-width: 120px;">
+                                                            <div class="fw-bold text-light fs-6"><%= show.time %></div>
+                                                            <div class="text-warning small font-monospace fw-bold">₹<%= show.basePrice %></div>
+                                                            <small class="text-info fw-semibold" style="font-size: 0.75rem;"><%= show.slotLabel %></small>
                                                         </a>
                                                     <% }); %>
                                                 </div>

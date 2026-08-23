@@ -1,5 +1,68 @@
 [
   {
+    "id": "CV-260823-73A50A",
+    "_id": "CV-260823-73A50A",
+    "movie": "Oppenheimer",
+    "movieTitle": "Oppenheimer",
+    "movieId": "mov-1",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "showId": "show-10",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "showDate": "2026-08-24",
+    "showTime": "09:15 PM",
+    "seats": [
+      "D10",
+      "C10"
+    ],
+    "seatDetails": [
+      {
+        "id": "D10",
+        "tier": "premium",
+        "price": 522
+      },
+      {
+        "id": "C10",
+        "tier": "premium",
+        "price": 522
+      }
+    ],
+    "snacks": [
+      {
+        "id": "snack-1",
+        "name": "Jumbo Caramel Popcorn",
+        "price": 180,
+        "qty": 1,
+        "total": 180,
+        "image": "🍿"
+      },
+      {
+        "id": "snack-2",
+        "name": "Loaded Cheese Nachos",
+        "price": 210,
+        "qty": 1,
+        "total": 210,
+        "image": "🧀"
+      }
+    ],
+    "snackSummary": "Jumbo Caramel Popcorn x1, Loaded Cheese Nachos x1",
+    "baseAmount": 1434,
+    "discountAmount": 50,
+    "appliedCoupon": "CINEMA50",
+    "convenienceFee": 35,
+    "gstAmount": 10,
+    "amount": 1429,
+    "finalAmount": 1429,
+    "paymentMethod": "Card",
+    "name": "Alex Morgan",
+    "email": "alex.morgan@cineverse.io",
+    "phone": "+91 98765 43210",
+    "status": "Confirmed",
+    "createdAt": "2026-08-23T17:11:06.199Z",
+    "timestamp": "2026-08-23T17:11:06.200Z",
+    "loyaltyPointsEarned": 143
+  },
+  {
     "id": "CV-20260823-A91B",
     "_id": "CV-20260823-A91B",
     "movie": "Oppenheimer",
@@ -11,13 +74,31 @@
     "screenType": "IMAX 3D",
     "showDate": "2026-08-23",
     "showTime": "05:30 PM",
-    "seats": ["A4", "A5"],
+    "seats": [
+      "A4",
+      "A5"
+    ],
     "seatDetails": [
-      { "id": "A4", "tier": "vip", "price": 624 },
-      { "id": "A5", "tier": "vip", "price": 624 }
+      {
+        "id": "A4",
+        "tier": "vip",
+        "price": 624
+      },
+      {
+        "id": "A5",
+        "tier": "vip",
+        "price": 624
+      }
     ],
     "snacks": [
-      { "id": "snack-1", "name": "Jumbo Caramel Popcorn", "price": 180, "qty": 1, "total": 180, "image": "🍿" }
+      {
+        "id": "snack-1",
+        "name": "Jumbo Caramel Popcorn",
+        "price": 180,
+        "qty": 1,
+        "total": 180,
+        "image": "🍿"
+      }
     ],
     "snackSummary": "Jumbo Caramel Popcorn x1",
     "baseAmount": 1428,
@@ -48,13 +129,31 @@
     "screenType": "4DX 3D",
     "showDate": "2026-08-23",
     "showTime": "09:15 PM",
-    "seats": ["C5", "C6"],
+    "seats": [
+      "C5",
+      "C6"
+    ],
     "seatDetails": [
-      { "id": "C5", "tier": "premium", "price": 430 },
-      { "id": "C6", "tier": "premium", "price": 430 }
+      {
+        "id": "C5",
+        "tier": "premium",
+        "price": 430
+      },
+      {
+        "id": "C6",
+        "tier": "premium",
+        "price": 430
+      }
     ],
     "snacks": [
-      { "id": "snack-4", "name": "Ultimate Couple Movie Combo", "price": 390, "qty": 1, "total": 390, "image": "🎬" }
+      {
+        "id": "snack-4",
+        "name": "Ultimate Couple Movie Combo",
+        "price": 390,
+        "qty": 1,
+        "total": 390,
+        "image": "🎬"
+      }
     ],
     "snackSummary": "Ultimate Couple Movie Combo x1",
     "baseAmount": 1250,
@@ -85,10 +184,21 @@
     "screenType": "Dolby Atmos",
     "showDate": "2026-08-22",
     "showTime": "07:30 PM",
-    "seats": ["D3", "D4"],
+    "seats": [
+      "D3",
+      "D4"
+    ],
     "seatDetails": [
-      { "id": "D3", "tier": "premium", "price": 320 },
-      { "id": "D4", "tier": "premium", "price": 320 }
+      {
+        "id": "D3",
+        "tier": "premium",
+        "price": 320
+      },
+      {
+        "id": "D4",
+        "tier": "premium",
+        "price": 320
+      }
     ],
     "snacks": [],
     "snackSummary": "",
@@ -120,14 +230,37 @@
     "screenType": "Digital 2D",
     "showDate": "2026-08-22",
     "showTime": "09:15 PM",
-    "seats": ["F1", "F2", "F3"],
+    "seats": [
+      "F1",
+      "F2",
+      "F3"
+    ],
     "seatDetails": [
-      { "id": "F1", "tier": "standard", "price": 250 },
-      { "id": "F2", "tier": "standard", "price": 250 },
-      { "id": "F3", "tier": "standard", "price": 250 }
+      {
+        "id": "F1",
+        "tier": "standard",
+        "price": 250
+      },
+      {
+        "id": "F2",
+        "tier": "standard",
+        "price": 250
+      },
+      {
+        "id": "F3",
+        "tier": "standard",
+        "price": 250
+      }
     ],
     "snacks": [
-      { "id": "snack-2", "name": "Loaded Cheese Nachos", "price": 210, "qty": 1, "total": 210, "image": "🧀" }
+      {
+        "id": "snack-2",
+        "name": "Loaded Cheese Nachos",
+        "price": 210,
+        "qty": 1,
+        "total": 210,
+        "image": "🧀"
+      }
     ],
     "snackSummary": "Loaded Cheese Nachos x1",
     "baseAmount": 960,
@@ -158,10 +291,21 @@
     "screenType": "IMAX 3D",
     "showDate": "2026-08-21",
     "showTime": "01:45 PM",
-    "seats": ["B2", "B3"],
+    "seats": [
+      "B2",
+      "B3"
+    ],
     "seatDetails": [
-      { "id": "B2", "tier": "vip", "price": 435 },
-      { "id": "B3", "tier": "vip", "price": 435 }
+      {
+        "id": "B2",
+        "tier": "vip",
+        "price": 435
+      },
+      {
+        "id": "B3",
+        "tier": "vip",
+        "price": 435
+      }
     ],
     "snacks": [],
     "snackSummary": "",
