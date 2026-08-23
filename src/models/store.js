@@ -9,8 +9,12 @@ const couponsFile = path.join(dataDir, 'coupons.json');
 const snacksFile = path.join(dataDir, 'snacks.json');
 
 // Ensure data directory exists
-if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true });
+try {
+    if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+    }
+} catch (e) {
+    // Read-only serverless filesystem
 }
 
 // Initial Movie Catalog with rich metadata and showtimes
