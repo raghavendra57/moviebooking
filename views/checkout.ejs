@@ -19,6 +19,9 @@
         <!-- Left Column: Customer Details & Payment Options -->
         <div class="col-lg-7">
             <form id="paymentForm" action="/process-payment" method="POST">
+                <input type="hidden" name="showId" value="<%= show.id %>">
+                <input type="hidden" name="seats" value='<%= JSON.stringify(seats) %>'>
+                <input type="hidden" name="snacks" value='<%= JSON.stringify(typeof snacks !== "undefined" ? snacks : (summary.snackDetails || [])) %>'>
                 <input type="hidden" name="couponCode" id="hiddenCouponCode" value="<%= summary.appliedCoupon ? summary.appliedCoupon.code : '' %>">
                 <input type="hidden" name="paymentMethod" id="selectedPaymentMethod" value="Card">
 

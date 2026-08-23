@@ -173,7 +173,7 @@
 
                 <!-- Checkout Button -->
                 <button type="button" class="btn btn-cinema w-100 py-3" id="btnProceedCheckout" disabled onclick="handleProceedCheckout()">
-                    <i class="fas fa-lock me-2"></i> Lock Seats & Pay
+                    <i class="fas fa-credit-card me-2"></i> Proceed to Payment
                 </button>
                 <div class="text-center mt-2 text-muted small" style="font-size: 0.75rem;">
                     <i class="fas fa-shield-alt text-success me-1"></i> Seats held for 5 minutes during checkout
@@ -339,7 +339,7 @@
 
         const btn = document.getElementById('btnProceedCheckout');
         btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Locking Seats...';
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Reserving Seats...';
 
         const seatIds = selectedSeats.map(s => s.id);
         const snackPayload = Object.keys(snackQuantities)
@@ -358,28 +358,25 @@
             if (!lockData.success) {
                 showToast(lockData.message || 'Selected seats were just taken. Please pick other seats.', 'error');
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-lock me-2"></i> Lock Seats & Pay';
+                btn.innerHTML = '<i class="fas fa-credit-card me-2"></i> Proceed to Payment';
                 return;
             }
 
-            // Save order to session and redirect
-            const prepRes = await fetch('/prepare-checkout', {
+            // Also prepare session asynchronously if available
+            fetch('/prepare-checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ showId: SHOW_ID, seats: seatIds, snacks: snackPayload })
-            });
-            const prepData = await prepRes.json();
+            }).catch(() => {});
 
-            if (prepData.success) {
-                window.location.href = prepData.redirectUrl;
-            } else {
-                showToast('Error preparing checkout.', 'error');
-                btn.disabled = false;
-            }
+            // Redirect directly to the checkout payment page
+            const checkoutUrl = `/checkout?show=${encodeURIComponent(SHOW_ID)}&seats=${encodeURIComponent(JSON.stringify(seatIds))}&snacks=${encodeURIComponent(JSON.stringify(snackPayload))}`;
+            window.location.href = checkoutUrl;
         } catch (err) {
             console.error('Checkout error', err);
             showToast('Network error during checkout.', 'error');
             btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-credit-card me-2"></i> Proceed to Payment';
         }
     }
 </script>

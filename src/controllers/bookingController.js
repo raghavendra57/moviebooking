@@ -140,33 +140,73 @@ const postPrepareCheckout = (req, res) => {
 // 5. Render Modern Multi-Payment Checkout Page
 const getCheckoutPage = (req, res) => {
     try {
-        const order = req.session.pendingOrder;
+        let showId = req.query.show;
+        let seats = req.query.seats;
+        let snacks = req.query.snacks;
 
-        if (!order) {
+        const sessionOrder = req.session ? req.session.pendingOrder : null;
+
+        if (!showId && sessionOrder) {
+            showId = sessionOrder.showId;
+            seats = sessionOrder.seats;
+            snacks = sessionOrder.snacks;
+        }
+
+        if (!showId || !seats) {
             return res.redirect('/?error=no_active_order');
         }
 
-        const show = store.getShowById(order.showId);
+        const show = store.getShowById(showId);
+        if (!show) return res.redirect('/');
         const movie = store.getMovieById(show.movieId);
+        if (!movie) return res.redirect('/');
 
-        if (!show || !movie) {
-            return res.redirect('/');
+        let parsedSeats = [];
+        try {
+            parsedSeats = typeof seats === 'string' ? JSON.parse(seats) : seats;
+            if (!Array.isArray(parsedSeats) && typeof seats === 'string') {
+                parsedSeats = seats.split(',').map(s => s.trim());
+            }
+        } catch (e) {
+            parsedSeats = typeof seats === 'string' ? seats.split(',').map(s => s.trim()) : [];
+        }
+
+        let parsedSnacks = [];
+        try {
+            parsedSnacks = typeof snacks === 'string' ? JSON.parse(snacks) : (snacks || []);
+        } catch (e) {
+            parsedSnacks = [];
+        }
+
+        if (!parsedSeats || parsedSeats.length === 0) {
+            return res.redirect('/book?show=' + showId);
+        }
+
+        if (req.session) {
+            req.session.pendingOrder = {
+                showId: show.id,
+                movieId: show.movieId,
+                seats: parsedSeats,
+                snacks: parsedSnacks,
+                lockedAt: Date.now()
+            };
         }
 
         const summary = bookingService.calculateOrderSummary({
             show,
-            seats: order.seats,
-            snacks: order.snacks,
+            seats: parsedSeats,
+            snacks: parsedSnacks,
             couponCode: req.query.coupon || null
         });
 
         res.render('checkout', {
             movie,
             show,
-            seats: order.seats,
+            seats: parsedSeats,
+            snacks: parsedSnacks,
             summary,
             coupons: store.getCoupons(),
-            userEmail: req.session.userEmail || ''
+            userEmail: req.session ? (req.session.userEmail || '') : ''
         });
     } catch (error) {
         console.error('Checkout Page Error:', error);
@@ -217,30 +257,39 @@ const postApplyCoupon = (req, res) => {
 // 7. Complete Payment & Confirm Booking
 const postProcessPayment = async (req, res) => {
     try {
-        const order = req.session.pendingOrder;
-        const { name, email, phone, paymentMethod, couponCode } = req.body;
+        const { name, email, phone, paymentMethod, couponCode, showId, seats, snacks } = req.body;
+        const sessionOrder = req.session ? req.session.pendingOrder : null;
 
-        if (!order) {
+        const targetShowId = showId || sessionOrder?.showId;
+        let targetSeats = seats || sessionOrder?.seats;
+        let targetSnacks = snacks || sessionOrder?.snacks;
+
+        if (typeof targetSeats === 'string') {
+            try { targetSeats = JSON.parse(targetSeats); } catch(e) { targetSeats = targetSeats.split(','); }
+        }
+        if (typeof targetSnacks === 'string') {
+            try { targetSnacks = JSON.parse(targetSnacks); } catch(e) { targetSnacks = []; }
+        }
+
+        if (!targetShowId || !targetSeats || targetSeats.length === 0) {
             return res.redirect('/?error=session_expired');
         }
 
-        const show = store.getShowById(order.showId);
+        const show = store.getShowById(targetShowId);
+        if (!show) return res.redirect('/');
         const movie = store.getMovieById(show.movieId);
-
-        if (!show || !movie) {
-            return res.redirect('/');
-        }
+        if (!movie) return res.redirect('/');
 
         // Calculate final total with applied coupon
         const summary = bookingService.calculateOrderSummary({
             show,
-            seats: order.seats,
-            snacks: order.snacks,
+            seats: targetSeats,
+            snacks: targetSnacks,
             couponCode: couponCode || null
         });
 
         const bookingId = bookingService.generateBookingId();
-        const customerEmail = email || req.session.userEmail || 'guest@cineverse.io';
+        const customerEmail = email || (req.session ? req.session.userEmail : null) || 'guest@cineverse.io';
         const customerName = name || 'Valued Guest';
 
         const bookingRecord = {
@@ -255,7 +304,7 @@ const postProcessPayment = async (req, res) => {
             screenType: show.screenType,
             showDate: show.date,
             showTime: show.time,
-            seats: order.seats,
+            seats: targetSeats,
             seatDetails: summary.seatDetails,
             snacks: summary.snackDetails,
             snackSummary: summary.snackDetails.map(s => `${s.name} x${s.qty}`).join(', '),
@@ -277,15 +326,22 @@ const postProcessPayment = async (req, res) => {
         };
 
         // 1. Confirm seats in memory/store
-        seatService.confirmSeats(show.id, order.seats);
+        seatService.confirmSeats(show.id, targetSeats);
 
         // 2. Persist booking
         store.createBooking(bookingRecord);
 
-        // 3. Save to user session
-        req.session.userEmail = customerEmail;
-        req.session.lastConfirmedBooking = bookingRecord;
-        delete req.session.pendingOrder;
+        // 3. Save to user session if available
+        if (req.session) {
+            req.session.userEmail = customerEmail;
+            req.session.lastConfirmedBooking = bookingRecord;
+            delete req.session.pendingOrder;
+            req.session.save(() => {
+                res.redirect(`/success?id=${bookingId}`);
+            });
+        } else {
+            res.redirect(`/success?id=${bookingId}`);
+        }
 
         // 4. Notify WebSocket connected clients
         websocketService.notifySeatStatusChanged(
@@ -298,10 +354,6 @@ const postProcessPayment = async (req, res) => {
         bookingRecord.ticketUrl = `http://${req.headers.host || 'localhost:3001'}/ticket/${bookingId}`;
         emailService.sendBookingConfirmation(bookingRecord).catch(err => {
             console.error('Non-blocking email error:', err.message);
-        });
-
-        req.session.save(() => {
-            res.redirect(`/success?id=${bookingId}`);
         });
 
     } catch (error) {
