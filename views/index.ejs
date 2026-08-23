@@ -1,0 +1,137 @@
+<%- include('partials/header', { title: 'Now Showing & Book Tickets' }) %>
+
+<div class="container my-4">
+    <!-- Featured Hero Spotlight -->
+    <% if (featuredMovies && featuredMovies.length > 0) { const hero = featuredMovies[0]; %>
+        <div class="hero-spotlight" style="background-image: url('<%= hero.backdropUrl || hero.posterUrl %>');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <i class="fas fa-crown text-warning"></i> SPOTLIGHT OF THE WEEK
+                </div>
+                <h1 class="hero-title"><%= hero.title %></h1>
+                <div class="hero-meta">
+                    <span><i class="fas fa-star text-warning"></i> <strong><%= hero.rating %>/10</strong> IMDb</span>
+                    <span><i class="far fa-clock"></i> <%= hero.duration %></span>
+                    <span><i class="fas fa-closed-captioning"></i> <%= hero.certification %></span>
+                    <span><i class="fas fa-volume-up text-info"></i> <%= hero.language %></span>
+                </div>
+                <p class="hero-synopsis"><%= hero.synopsis %></p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/movie/<%= hero.id %>" class="btn btn-cinema px-4 py-3">
+                        <i class="fas fa-ticket-alt me-2"></i> Book Tickets Now
+                    </a>
+                    <button class="btn btn-cinema-outline px-4 py-3" onclick="playTrailer('<%= hero.trailerYoutubeId %>', '<%= hero.title %>')">
+                        <i class="fas fa-play text-danger me-2"></i> Watch Trailer
+                    </button>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+    <!-- Filter & Header Bar -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+        <div>
+            <h2 class="mb-1 text-light">🎬 Now Showing in Theaters</h2>
+            <p class="text-muted small mb-0">Select a movie to explore showtimes across IMAX, Dolby Atmos, and 4DX halls</p>
+        </div>
+
+        <!-- Genre Tags Filter -->
+        <div class="d-flex flex-wrap gap-2">
+            <a href="/" class="btn btn-sm <%= currentGenre === 'all' ? 'btn-cinema' : 'btn-cinema-outline' %>">All Genres</a>
+            <% allGenres.forEach(genre => { %>
+                <a href="/?genre=<%= genre %>" class="btn btn-sm <%= currentGenre.toLowerCase() === genre.toLowerCase() ? 'btn-cinema' : 'btn-cinema-outline' %>">
+                    <%= genre %>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Movie Grid -->
+    <% if (movies && movies.length > 0) { %>
+        <div class="row g-4 mb-5">
+            <% movies.forEach(movie => { %>
+                <div class="col-sm-6 col-lg-4 col-xl-4">
+                    <div class="movie-card">
+                        <div class="poster-wrapper">
+                            <img src="<%= movie.posterUrl %>" alt="<%= movie.title %>" class="poster-img" loading="lazy">
+                            <div class="rating-badge">
+                                <i class="fas fa-star text-warning"></i> <%= movie.rating %>
+                            </div>
+                            <div class="formats-badge-group">
+                                <% (movie.formats || ['2D', 'Dolby Atmos']).forEach(fmt => { %>
+                                    <span class="format-pill"><%= fmt %></span>
+                                <% }); %>
+                            </div>
+                        </div>
+
+                        <div class="movie-card-body">
+                            <h3 class="movie-title" title="<%= movie.title %>"><%= movie.title %></h3>
+                            <div class="movie-genres">
+                                <%= (movie.genre || []).join(' • ') %> | <%= movie.duration %>
+                            </div>
+                            <p class="text-muted small mb-3 text-truncate-2" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 0.85rem;">
+                                <%= movie.synopsis %>
+                            </p>
+
+                            <div class="movie-card-footer">
+                                <div class="price-tag">
+                                    ₹<%= movie.basePrice %> <small>onwards</small>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-sm btn-cinema-outline px-2" title="Watch Trailer" onclick="playTrailer('<%= movie.trailerYoutubeId %>', '<%= movie.title %>')">
+                                        <i class="fas fa-play text-danger"></i>
+                                    </button>
+                                    <a href="/movie/<%= movie.id %>" class="btn btn-sm btn-cinema px-3">
+                                        Book Show
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <div class="glass-panel text-center py-5 my-4">
+            <i class="fas fa-film fa-3x text-muted mb-3"></i>
+            <h4 class="text-light">No Movies Found</h4>
+            <p class="text-muted">No movies match your current search or genre filter.</p>
+            <a href="/" class="btn btn-cinema mt-2">Reset Filters</a>
+        </div>
+    <% } %>
+
+    <!-- Value Proposition Banner -->
+    <div class="row g-4 my-4">
+        <div class="col-md-3">
+            <div class="glass-panel p-3 text-center h-100">
+                <i class="fas fa-bolt text-warning fa-2x mb-2"></i>
+                <h6 class="text-light mb-1">Real-Time Seat Locking</h6>
+                <p class="text-muted small mb-0">WebSocket synchronization prevents double booking conflicts instantly.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="glass-panel p-3 text-center h-100">
+                <i class="fas fa-tv text-info fa-2x mb-2"></i>
+                <h6 class="text-light mb-1">Laser IMAX & 4DX</h6>
+                <p class="text-muted small mb-0">Ultra-high resolution visuals with immersive Dolby Atmos 64-channel sound.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="glass-panel p-3 text-center h-100">
+                <i class="fas fa-qrcode text-success fa-2x mb-2"></i>
+                <h6 class="text-light mb-1">Instant QR E-Pass</h6>
+                <p class="text-muted small mb-0">High-res downloadable PDF tickets with digital gate entry barcode.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="glass-panel p-3 text-center h-100">
+                <i class="fas fa-utensils text-danger fa-2x mb-2"></i>
+                <h6 class="text-light mb-1">Seat-Side F&B Delivery</h6>
+                <p class="text-muted small mb-0">Pre-order gourmet popcorn & snacks directly to your cinema recliner.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

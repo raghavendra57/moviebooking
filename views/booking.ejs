@@ -1,0 +1,387 @@
+<%- include('partials/header', { title: 'Select Seats - ' + movie.title }) %>
+
+<div class="container my-4">
+    <!-- Show Header Summary -->
+    <div class="glass-panel p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <div>
+            <span class="badge bg-info text-dark mb-1"><%= show.screenType %></span>
+            <h4 class="text-light mb-0"><%= movie.title %></h4>
+            <div class="text-muted small">
+                <i class="fas fa-film"></i> <%= show.theater %> &nbsp;|&nbsp;
+                <i class="fas fa-calendar-alt"></i> <%= show.date %> &nbsp;|&nbsp;
+                <i class="fas fa-clock"></i> <%= show.time %> (<%= show.slotLabel %>)
+            </div>
+        </div>
+
+        <!-- Live Viewers & Timer Badge -->
+        <div class="d-flex align-items-center gap-3">
+            <div class="text-end">
+                <div class="badge bg-dark border border-secondary text-info p-2 px-3">
+                    <i class="fas fa-users text-success me-1"></i> <span id="viewerCount">1</span> Live Viewers
+                </div>
+            </div>
+            <a href="/movie/<%= movie.id %>" class="btn btn-sm btn-cinema-outline">
+                <i class="fas fa-exchange-alt me-1"></i> Change Show
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Center/Left Column: Seating Hall & Screen -->
+        <div class="col-lg-8">
+            <div class="glass-panel p-4 text-center">
+                <!-- Curved Cinema Screen -->
+                <div class="curved-screen-container">
+                    <div class="curved-screen"></div>
+                    <div class="screen-label"><i class="fas fa-eye text-info me-1"></i> ALL EYES THIS WAY (SCREEN)</div>
+                </div>
+
+                <!-- Seating Layout Grid -->
+                <div class="cinema-hall">
+                    <div class="seating-grid" id="seatingGrid">
+                        <% seatLayout.forEach(rowInfo => { %>
+                            <div class="seat-row" data-row="<%= rowInfo.row %>">
+                                <div class="row-label"><%= rowInfo.row %></div>
+                                
+                                <% rowInfo.seats.forEach((seat, sIdx) => { 
+                                    // Add visual aisle gap after seat 4
+                                    const hasGap = (sIdx === 4);
+                                %>
+                                    <button 
+                                        type="button"
+                                        class="seat-btn <%= seat.status %> <%= seat.isWheelchair ? 'wheelchair' : '' %>"
+                                        data-seat="<%= seat.id %>"
+                                        data-tier="<%= seat.tier %>"
+                                        data-price="<%= seat.price %>"
+                                        title="<%= seat.id %> - <%= seat.tierName %> (₹<%= seat.price %>)"
+                                        <%= seat.status !== 'available' ? 'disabled' : '' %>
+                                    >
+                                        <%= seat.isWheelchair ? '♿' : seat.number %>
+                                    </button>
+
+                                    <% if (hasGap) { %>
+                                        <div class="seat-gap"></div>
+                                    <% } %>
+                                <% }); %>
+                                
+                                <div class="row-label"><%= rowInfo.row %></div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+
+                <!-- Seat Legend -->
+                <div class="seat-legend">
+                    <div class="legend-item">
+                        <div class="legend-swatch" style="background: var(--seat-vip);"></div>
+                        <span>VIP Recliner (₹<%= show.tierPrices.vip %>)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-swatch" style="background: var(--seat-premium);"></div>
+                        <span>Premium (₹<%= show.tierPrices.premium %>)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-swatch" style="background: var(--seat-standard);"></div>
+                        <span>Standard (₹<%= show.tierPrices.standard %>)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-swatch" style="background: var(--seat-selected);"></div>
+                        <span>Selected</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-swatch" style="background: var(--seat-occupied);"></div>
+                        <span>Occupied</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-swatch" style="background: var(--seat-locked);"></div>
+                        <span>Locked</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- F&B Snack Add-ons Section -->
+            <div class="glass-panel p-4 mt-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-light mb-0"><i class="fas fa-popcorn text-warning me-2"></i> Grab Snacks & Beverages</h4>
+                    <span class="badge bg-dark border border-secondary text-muted">Delivered to Seat</span>
+                </div>
+                
+                <div class="row g-3">
+                    <% snacks.forEach(snack => { %>
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded border d-flex justify-content-between align-items-center" style="background: rgba(15, 23, 42, 0.6); border-color: var(--border-glass) !important;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <span style="font-size: 2rem;"><%= snack.image %></span>
+                                    <div>
+                                        <div class="fw-bold text-light mb-0"><%= snack.name %></div>
+                                        <div class="text-warning small font-monospace">₹<%= snack.price %></div>
+                                        <small class="text-muted" style="font-size: 0.75rem;"><%= snack.description %></small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <button type="button" class="btn btn-sm btn-dark border border-secondary px-2" onclick="updateSnackQty('<%= snack.id %>', -1)">-</button>
+                                    <span class="fw-bold font-monospace px-2 text-light" id="qty-<%= snack.id %>">0</span>
+                                    <button type="button" class="btn btn-sm btn-dark border border-secondary px-2" onclick="updateSnackQty('<%= snack.id %>', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Order Summary & Checkout Trigger -->
+        <div class="col-lg-4">
+            <div class="glass-panel p-4 sticky-top" style="top: 90px;">
+                <h4 class="text-light mb-3 pb-2 border-bottom border-secondary">
+                    <i class="fas fa-receipt text-info me-2"></i> Booking Summary
+                </h4>
+
+                <!-- Selected Seats Display -->
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted small">Selected Seats (<span id="seatCount">0</span>)</span>
+                        <span class="fw-bold text-light font-monospace" id="seatsListText">None</span>
+                    </div>
+                    <div id="seatDetailsContainer" class="d-flex flex-column gap-1 small text-muted"></div>
+                </div>
+
+                <!-- Selected Snacks Display -->
+                <div class="mb-3 border-top border-secondary pt-2">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="text-muted small">Snacks & Combos</span>
+                        <span class="fw-bold text-light font-monospace" id="snacksCostText">₹0</span>
+                    </div>
+                    <div id="snackSummaryContainer" class="small text-muted"></div>
+                </div>
+
+                <!-- Financial Breakdown -->
+                <div class="border-top border-secondary pt-3 mb-4">
+                    <div class="d-flex justify-content-between text-muted small mb-1">
+                        <span>Tickets Subtotal</span>
+                        <span class="font-monospace text-light" id="ticketsSubtotal">₹0</span>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted small mb-1">
+                        <span>Convenience Fee (incl. GST)</span>
+                        <span class="font-monospace text-light" id="feesText">₹0</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary mt-2">
+                        <h5 class="text-light mb-0">Total Payable</h5>
+                        <h4 class="text-warning mb-0 font-monospace" id="grandTotal">₹0</h4>
+                    </div>
+                </div>
+
+                <!-- Checkout Button -->
+                <button type="button" class="btn btn-cinema w-100 py-3" id="btnProceedCheckout" disabled onclick="handleProceedCheckout()">
+                    <i class="fas fa-lock me-2"></i> Lock Seats & Pay
+                </button>
+                <div class="text-center mt-2 text-muted small" style="font-size: 0.75rem;">
+                    <i class="fas fa-shield-alt text-success me-1"></i> Seats held for 5 minutes during checkout
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SHOW_ID = '<%= show.id %>';
+    const SHOW_BASE_PRICE = <%= show.basePrice %>;
+    const SNACKS_DATA = <%- JSON.stringify(snacks) %>;
+    
+    let selectedSeats = [];
+    let snackQuantities = {};
+
+    // Initialize Snack Qty Map
+    SNACKS_DATA.forEach(s => snackQuantities[s.id] = 0);
+
+    // 1. WebSocket Live Synchronization
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = `${protocol}//${window.location.host}/ws?showId=${SHOW_ID}`;
+    let socket;
+
+    function initWebSocket() {
+        try {
+            socket = new WebSocket(wsUrl);
+            socket.onopen = () => {
+                console.log('Connected to CineVerse WebSocket');
+                socket.send(JSON.stringify({ type: 'join_show', showId: SHOW_ID }));
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.type === 'viewers_count') {
+                        document.getElementById('viewerCount').textContent = data.count;
+                    } else if (data.type === 'seat_status_sync') {
+                        updateLiveSeats(data.occupiedSeats || [], data.lockedSeats || []);
+                    }
+                } catch (e) { console.error('WS Parse Error', e); }
+            };
+
+            socket.onclose = () => {
+                setTimeout(initWebSocket, 3000);
+            };
+        } catch (err) {
+            console.error('WS Init Error', err);
+        }
+    }
+
+    initWebSocket();
+
+    function updateLiveSeats(occupiedSeats, lockedSeats) {
+        document.querySelectorAll('.seat-btn').forEach(btn => {
+            const sId = btn.getAttribute('data-seat');
+            if (selectedSeats.includes(sId)) return; // Keep user's active selection
+
+            if (occupiedSeats.includes(sId)) {
+                btn.className = 'seat-btn occupied';
+                btn.disabled = true;
+            } else if (lockedSeats.includes(sId)) {
+                btn.className = 'seat-btn locked';
+                btn.disabled = true;
+            } else {
+                btn.className = `seat-btn ${btn.getAttribute('data-tier')}`;
+                btn.disabled = false;
+            }
+        });
+    }
+
+    // 2. Seat Click Handler
+    document.querySelectorAll('.seat-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (this.classList.contains('occupied') || this.classList.contains('locked')) return;
+
+            const seatId = this.getAttribute('data-seat');
+            const price = parseInt(this.getAttribute('data-price'));
+            const tier = this.getAttribute('data-tier');
+
+            if (this.classList.contains('selected')) {
+                this.classList.remove('selected');
+                selectedSeats = selectedSeats.filter(s => s.id !== seatId);
+            } else {
+                if (selectedSeats.length >= 8) {
+                    showToast('Maximum 8 seats allowed per booking transaction.', 'info');
+                    return;
+                }
+                this.classList.add('selected');
+                selectedSeats.push({ id: seatId, price, tier });
+            }
+
+            calculateSummary();
+        });
+    });
+
+    // 3. Snacks Quantity Counter
+    function updateSnackQty(snackId, change) {
+        const current = snackQuantities[snackId] || 0;
+        const updated = Math.max(0, current + change);
+        snackQuantities[snackId] = updated;
+        document.getElementById(`qty-${snackId}`).textContent = updated;
+        calculateSummary();
+    }
+
+    // 4. Calculate Order Breakdown
+    function calculateSummary() {
+        const count = selectedSeats.length;
+        document.getElementById('seatCount').textContent = count;
+        document.getElementById('seatsListText').textContent = count > 0 ? selectedSeats.map(s => s.id).join(', ') : 'None';
+
+        // Seats detail list
+        const seatDetailsContainer = document.getElementById('seatDetailsContainer');
+        seatDetailsContainer.innerHTML = '';
+        let ticketsTotal = 0;
+
+        selectedSeats.forEach(s => {
+            ticketsTotal += s.price;
+            const item = document.createElement('div');
+            item.className = 'd-flex justify-content-between';
+            item.innerHTML = `<span>Seat ${s.id} (${s.tier.toUpperCase()})</span><span class="font-monospace">₹${s.price}</span>`;
+            seatDetailsContainer.appendChild(item);
+        });
+
+        // Snacks total
+        let snacksTotal = 0;
+        const snackSummaryContainer = document.getElementById('snackSummaryContainer');
+        snackSummaryContainer.innerHTML = '';
+
+        Object.keys(snackQuantities).forEach(sId => {
+            const qty = snackQuantities[sId];
+            if (qty > 0) {
+                const sObj = SNACKS_DATA.find(x => x.id === sId);
+                if (sObj) {
+                    const itemTotal = sObj.price * qty;
+                    snacksTotal += itemTotal;
+                    const item = document.createElement('div');
+                    item.className = 'd-flex justify-content-between';
+                    item.innerHTML = `<span>${sObj.name} x${qty}</span><span class="font-monospace">₹${itemTotal}</span>`;
+                    snackSummaryContainer.appendChild(item);
+                }
+            }
+        });
+
+        document.getElementById('snacksCostText').textContent = `₹${snacksTotal}`;
+        document.getElementById('ticketsSubtotal').textContent = `₹${ticketsTotal}`;
+
+        const fee = count > 0 ? 35 : 0;
+        document.getElementById('feesText').textContent = `₹${fee}`;
+
+        const grandTotal = ticketsTotal + snacksTotal + fee;
+        document.getElementById('grandTotal').textContent = `₹${grandTotal}`;
+
+        // Enable or disable checkout button
+        const btnCheckout = document.getElementById('btnProceedCheckout');
+        btnCheckout.disabled = count === 0;
+    }
+
+    // 5. Proceed to Checkout Transition
+    async function handleProceedCheckout() {
+        if (selectedSeats.length === 0) return;
+
+        const btn = document.getElementById('btnProceedCheckout');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Locking Seats...';
+
+        const seatIds = selectedSeats.map(s => s.id);
+        const snackPayload = Object.keys(snackQuantities)
+            .filter(id => snackQuantities[id] > 0)
+            .map(id => ({ id, qty: snackQuantities[id] }));
+
+        try {
+            // First lock seats temporarily
+            const lockRes = await fetch('/lock-seats', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ showId: SHOW_ID, seats: seatIds })
+            });
+            const lockData = await lockRes.json();
+
+            if (!lockData.success) {
+                showToast(lockData.message || 'Selected seats were just taken. Please pick other seats.', 'error');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-lock me-2"></i> Lock Seats & Pay';
+                return;
+            }
+
+            // Save order to session and redirect
+            const prepRes = await fetch('/prepare-checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ showId: SHOW_ID, seats: seatIds, snacks: snackPayload })
+            });
+            const prepData = await prepRes.json();
+
+            if (prepData.success) {
+                window.location.href = prepData.redirectUrl;
+            } else {
+                showToast('Error preparing checkout.', 'error');
+                btn.disabled = false;
+            }
+        } catch (err) {
+            console.error('Checkout error', err);
+            showToast('Network error during checkout.', 'error');
+            btn.disabled = false;
+        }
+    }
+</script>
+
+<%- include('partials/footer') %>

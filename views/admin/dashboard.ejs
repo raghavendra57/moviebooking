@@ -1,0 +1,215 @@
+<%- include('../partials/header', { title: 'Admin Analytics Portal - CineVerse Pro' }) %>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<div class="container my-4">
+    <!-- Admin Portal Header & Nav -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+        <div>
+            <span class="badge bg-primary text-dark font-monospace mb-1">EXECUTIVE ADMIN CONSOLE</span>
+            <h2 class="text-light mb-0">📊 Real-Time Cinema Analytics</h2>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2">
+            <a href="/admin/movies" class="btn btn-sm btn-cinema-outline">
+                <i class="fas fa-film me-1"></i> Manage Movies
+            </a>
+            <a href="/admin/bookings" class="btn btn-sm btn-cinema-outline">
+                <i class="fas fa-list-alt me-1"></i> View All Bookings
+            </a>
+            <a href="/admin/export/csv" class="btn btn-sm btn-cinema">
+                <i class="fas fa-file-csv me-1"></i> Export CSV Report
+            </a>
+        </div>
+    </div>
+
+    <!-- KPI Metric Cards Grid -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-lg-3">
+            <div class="glass-panel p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small text-uppercase">Total Gross Revenue</span>
+                    <i class="fas fa-coins text-warning fa-lg"></i>
+                </div>
+                <h3 class="text-light mb-1 font-monospace">₹<%= kpis.totalRevenue %></h3>
+                <small class="text-success"><i class="fas fa-arrow-up me-1"></i> +18.4% vs last week</small>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="glass-panel p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small text-uppercase">Tickets Booked</span>
+                    <i class="fas fa-ticket-alt text-info fa-lg"></i>
+                </div>
+                <h3 class="text-light mb-1 font-monospace"><%= kpis.totalTickets %></h3>
+                <small class="text-info"><%= kpis.totalConfirmed %> Confirmed Orders</small>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="glass-panel p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small text-uppercase">Avg. Order Value</span>
+                    <i class="fas fa-receipt text-primary fa-lg"></i>
+                </div>
+                <h3 class="text-light mb-1 font-monospace">₹<%= kpis.averageOrderValue %></h3>
+                <small class="text-muted">Tickets + F&B Combos</small>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+            <div class="glass-panel p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted small text-uppercase">Active Catalog</span>
+                    <i class="fas fa-video text-danger fa-lg"></i>
+                </div>
+                <h3 class="text-light mb-1 font-monospace"><%= kpis.totalMovies %> Movies</h3>
+                <small class="text-muted"><%= kpis.totalShows %> Daily Showtimes</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row g-4 mb-4">
+        <!-- Sales Trend Line Chart -->
+        <div class="col-lg-7">
+            <div class="glass-panel p-4 h-100">
+                <h5 class="text-light mb-3"><i class="fas fa-chart-line text-info me-2"></i> Daily Revenue Velocity (Past 7 Days)</h5>
+                <div style="height: 280px; position: relative;">
+                    <canvas id="salesTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Grossing Movies Bar Chart -->
+        <div class="col-lg-5">
+            <div class="glass-panel p-4 h-100">
+                <h5 class="text-light mb-3"><i class="fas fa-trophy text-warning me-2"></i> Revenue by Movie</h5>
+                <div style="height: 280px; position: relative;">
+                    <canvas id="topMoviesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Bookings Table -->
+    <div class="glass-panel p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="text-light mb-0"><i class="fas fa-history text-muted me-2"></i> Recent Order Transactions</h5>
+            <a href="/admin/bookings" class="text-info small text-decoration-none">View All Bookings →</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-hover mb-0" style="background: transparent;">
+                <thead>
+                    <tr class="text-muted small border-secondary">
+                        <th>Booking ID</th>
+                        <th>Customer</th>
+                        <th>Movie Title</th>
+                        <th>Seats</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (recentBookings && recentBookings.length > 0) { %>
+                        <% recentBookings.forEach(b => { %>
+                            <tr class="border-secondary align-middle">
+                                <td class="font-monospace text-warning">#<%= b.id || b._id %></td>
+                                <td>
+                                    <div class="text-light fw-bold"><%= b.name %></div>
+                                    <small class="text-muted"><%= b.email %></small>
+                                </td>
+                                <td class="text-light"><%= b.movieTitle || b.movie %></td>
+                                <td class="font-monospace text-info"><%= Array.isArray(b.seats) ? b.seats.join(', ') : b.seats %></td>
+                                <td class="font-monospace fw-bold text-light">₹<%= b.finalAmount || b.amount %></td>
+                                <td>
+                                    <span class="badge <%= b.status === 'Cancelled' ? 'bg-danger' : 'bg-success' %>">
+                                        <%= b.status || 'Confirmed' %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="/download-ticket/<%= b.id || b._id %>" class="btn btn-sm btn-cinema-outline py-1 px-2" title="Download PDF">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="7" class="text-center text-muted py-4">No recent bookings recorded.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize Chart.js Theme & Data
+    const trendLabels = <%- JSON.stringify(charts.salesTrend.labels) %>;
+    const trendData = <%- JSON.stringify(charts.salesTrend.data) %>;
+
+    const movieLabels = <%- JSON.stringify(charts.topMovies.labels) %>;
+    const movieData = <%- JSON.stringify(charts.topMovies.data) %>;
+
+    // 1. Sales Trend Line Chart
+    new Chart(document.getElementById('salesTrendChart'), {
+        type: 'line',
+        data: {
+            labels: trendLabels,
+            datasets: [{
+                label: 'Daily Revenue (₹)',
+                data: trendData,
+                borderColor: '#38bdf8',
+                backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                tension: 0.4,
+                fill: true,
+                pointBackgroundColor: '#38bdf8',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } },
+                y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } }
+            }
+        }
+    });
+
+    // 2. Revenue by Movie Bar Chart
+    new Chart(document.getElementById('topMoviesChart'), {
+        type: 'bar',
+        data: {
+            labels: movieLabels,
+            datasets: [{
+                label: 'Gross (₹)',
+                data: movieData,
+                backgroundColor: ['#6366f1', '#38bdf8', '#fbbf24', '#10b981', '#f43f5e', '#a855f7'],
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+                y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } }
+            }
+        }
+    });
+</script>
+
+<%- include('../partials/footer') %>

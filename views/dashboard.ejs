@@ -1,0 +1,131 @@
+<%- include('partials/header', { title: 'My Bookings & Loyalty Portal' }) %>
+
+<div class="container my-4">
+    <!-- User Profile Header & Loyalty Rewards Card -->
+    <div class="glass-panel p-4 mb-4">
+        <div class="row align-items-center gy-3">
+            <div class="col-md-6 d-flex align-items-center gap-3">
+                <div class="p-3 rounded-circle bg-dark border border-info text-info fs-3">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <div>
+                    <h4 class="text-light mb-1"><%= userEmail.split('@')[0] %></h4>
+                    <div class="text-muted small"><i class="fas fa-envelope me-1"></i> <%= userEmail %></div>
+                </div>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-md-end gap-3">
+                <div class="p-3 rounded border text-center" style="background: rgba(15, 23, 42, 0.6); border-color: var(--border-glass) !important; min-width: 140px;">
+                    <div class="text-warning fw-bold fs-4 font-monospace">⭐ <%= totalLoyaltyPoints %></div>
+                    <small class="text-muted">Loyalty Points</small>
+                </div>
+                <div class="p-3 rounded border text-center" style="background: rgba(15, 23, 42, 0.6); border-color: var(--border-glass) !important; min-width: 140px;">
+                    <div class="text-light fw-bold fs-4 font-monospace">₹<%= totalSpent %></div>
+                    <small class="text-muted">Total Spent</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bookings Tabs -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="text-light mb-0">🎟️ My Movie Passes</h3>
+        <a href="/" class="btn btn-sm btn-cinema">
+            <i class="fas fa-plus me-1"></i> Book New Show
+        </a>
+    </div>
+
+    <% if (displayBookings && displayBookings.length > 0) { %>
+        <div class="d-flex flex-column gap-4">
+            <% displayBookings.forEach(booking => { 
+                const isCancelled = booking.status === 'Cancelled';
+            %>
+                <div class="glass-panel p-4 transition-hover <%= isCancelled ? 'opacity-75' : '' %>" id="booking-card-<%= booking.id || booking._id %>">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pb-3 border-bottom border-secondary mb-3">
+                        <div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <span class="badge <%= isCancelled ? 'bg-danger' : 'bg-info text-dark' %>"><%= booking.screenType || 'IMAX 3D' %></span>
+                                <h4 class="text-light mb-0"><%= booking.movieTitle || booking.movie %></h4>
+                                <% if (isCancelled) { %>
+                                    <span class="badge bg-danger">CANCELLED & REFUNDED</span>
+                                <% } %>
+                            </div>
+                            <div class="text-muted small">
+                                <i class="fas fa-film"></i> <%= booking.theater || 'Screen 1' %> &nbsp;|&nbsp;
+                                <i class="fas fa-calendar-alt"></i> <%= booking.showDate || 'Scheduled Show' %> at <%= booking.showTime || '07:30 PM' %>
+                            </div>
+                        </div>
+
+                        <div class="text-md-end">
+                            <div class="text-muted small">Booking ID</div>
+                            <div class="text-warning font-monospace fw-bold">#<%= booking.id || booking._id %></div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-3">
+                            <div class="text-muted small">Seats Booked</div>
+                            <div class="text-success fw-bold font-monospace fs-5">
+                                <%= Array.isArray(booking.seats) ? booking.seats.join(', ') : booking.seats %>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-muted small">Amount Paid</div>
+                            <div class="text-light fw-bold font-monospace fs-5">₹<%= booking.finalAmount || booking.amount %></div>
+                        </div>
+                        <div class="col-md-6 d-flex flex-wrap justify-content-md-end gap-2">
+                            <% if (!isCancelled) { %>
+                                <a href="/ticket/<%= booking.id || booking._id %>" class="btn btn-sm btn-cinema-outline">
+                                    <i class="fas fa-qrcode me-1"></i> Digital Pass
+                                </a>
+                                <a href="/download-ticket/<%= booking.id || booking._id %>" class="btn btn-sm btn-cinema">
+                                    <i class="fas fa-download me-1"></i> Download PDF
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="cancelBookingPrompt('<%= booking.id || booking._id %>')">
+                                    <i class="fas fa-times me-1"></i> Cancel
+                                </button>
+                            <% } else { %>
+                                <span class="text-muted small font-italic">Refund processed to original payment method</span>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <div class="glass-panel text-center py-5">
+            <i class="fas fa-ticket-alt fa-3x text-muted mb-3"></i>
+            <h4 class="text-light">No Bookings Yet</h4>
+            <p class="text-muted">You haven't reserved any movie tickets yet. Explore today's blockbuster shows!</p>
+            <a href="/" class="btn btn-cinema mt-2">Explore Movies Now</a>
+        </div>
+    <% } %>
+</div>
+
+<script>
+    async function cancelBookingPrompt(bookingId) {
+        if (!confirm(`Are you sure you want to cancel booking #${bookingId}? Your seats will be released and a full refund initiated.`)) {
+            return;
+        }
+
+        try {
+            const res = await fetch(`/cancel-booking/${bookingId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                showToast(data.message, 'success');
+                setTimeout(() => window.location.reload(), 1200);
+            } else {
+                showToast(data.message || 'Cancellation failed', 'error');
+            }
+        } catch (e) {
+            console.error('Cancel error', e);
+            showToast('Network error during cancellation', 'error');
+        }
+    }
+</script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,86 @@
+<%- include('partials/header', { title: 'Digital E-Pass - ' + (booking.id || booking._id) }) %>
+
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 mx-auto" style="max-width: 520px;">
+        <a href="/dashboard" class="btn btn-sm btn-cinema-outline">
+            <i class="fas fa-arrow-left me-1"></i> Dashboard
+        </a>
+        <div class="d-flex gap-2">
+            <button onclick="window.print()" class="btn btn-sm btn-cinema-outline">
+                <i class="fas fa-print me-1"></i> Print Pass
+            </button>
+            <a href="/download-ticket/<%= booking.id || booking._id %>" class="btn btn-sm btn-cinema">
+                <i class="fas fa-download me-1"></i> PDF
+            </a>
+        </div>
+    </div>
+
+    <!-- Digital Ticket Wallet Pass -->
+    <div class="ticket-pass">
+        <div class="ticket-notch-left"></div>
+        <div class="ticket-notch-right"></div>
+
+        <!-- Header -->
+        <div class="ticket-header">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="fw-bold tracking-wider small text-uppercase" style="letter-spacing: 2px;">CineVerse Pro Pass</div>
+                <span class="badge bg-warning text-dark font-monospace"><%= booking.screenType || 'IMAX 3D' %></span>
+            </div>
+            <h2 class="text-light mb-1"><%= booking.movieTitle || booking.movie %></h2>
+            <div class="text-info small"><%= booking.theater || 'Screen 1' %></div>
+        </div>
+
+        <!-- Body Details -->
+        <div class="p-4">
+            <div class="row g-3 mb-3">
+                <div class="col-6">
+                    <div class="text-muted small">Date</div>
+                    <div class="text-light fw-bold font-monospace"><%= booking.showDate || 'Today' %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted small">Showtime</div>
+                    <div class="text-light fw-bold font-monospace"><%= booking.showTime || '07:30 PM' %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted small">Confirmed Seats</div>
+                    <div class="text-success fw-bold font-monospace fs-5"><%= Array.isArray(booking.seats) ? booking.seats.join(', ') : booking.seats %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted small">Amount Paid</div>
+                    <div class="text-warning fw-bold font-monospace fs-5">₹<%= booking.finalAmount || booking.amount %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted small">Attendee Name</div>
+                    <div class="text-light"><%= booking.name %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted small">Booking Reference</div>
+                    <div class="text-info font-monospace small">#<%= booking.id || booking._id %></div>
+                </div>
+            </div>
+
+            <% if (booking.snackSummary) { %>
+                <div class="p-2 rounded bg-dark border border-secondary mb-3 small">
+                    <span class="text-muted"><i class="fas fa-popcorn text-warning me-1"></i> F&B Add-ons:</span>
+                    <strong class="text-light ms-1"><%= booking.snackSummary %></strong>
+                </div>
+            <% } %>
+
+            <!-- Perforation Cut Line -->
+            <div class="ticket-perforation"></div>
+
+            <!-- QR Code Entry Gate Scanner -->
+            <div class="text-center py-2">
+                <div class="qr-scanner-box mb-2">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<%= booking.id || booking._id %>" alt="Gate Pass QR" style="width: 140px; height: 140px;">
+                </div>
+                <div class="text-muted small font-monospace">SCAN AT CINEMA USHER TURNSTILE</div>
+                <div class="d-flex justify-content-center align-items-center gap-1 text-success small mt-1">
+                    <i class="fas fa-shield-alt text-success me-1"></i> <span>Digitally Verified & Valid</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,79 @@
+<%- include('partials/header', { title: 'Booking Confirmed! - CineVerse Pro' }) %>
+
+<div class="container my-5">
+    <div class="glass-panel p-5 text-center mx-auto" style="max-width: 680px;">
+        <!-- Success Animated Icon -->
+        <div class="mb-4 d-inline-flex p-4 rounded-circle" style="background: rgba(16, 185, 129, 0.15); border: 2px solid var(--accent-emerald);">
+            <i class="fas fa-check-circle fa-4x text-success"></i>
+        </div>
+
+        <h1 class="text-light mb-2">Booking Confirmed!</h1>
+        <p class="text-muted mb-4">
+            Congratulations <strong class="text-light"><%= booking.name %></strong>, your movie tickets are booked and seats are secured.
+        </p>
+
+        <!-- Ticket Snapshot Box -->
+        <div class="p-4 rounded border text-start mb-4" style="background: rgba(15, 23, 42, 0.8); border-color: var(--border-glass) !important;">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-secondary">
+                <div>
+                    <span class="badge bg-info text-dark mb-1"><%= booking.screenType || 'IMAX 3D' %></span>
+                    <h4 class="text-light mb-0"><%= booking.movieTitle || booking.movie %></h4>
+                </div>
+                <div class="text-end">
+                    <div class="text-muted small">Booking ID</div>
+                    <div class="text-warning font-monospace fw-bold">#<%= booking.id || booking._id %></div>
+                </div>
+            </div>
+
+            <div class="row g-3 small">
+                <div class="col-6">
+                    <div class="text-muted">Cinema & Screen</div>
+                    <div class="text-light fw-bold"><%= booking.theater || 'Screen 1' %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted">Date & Time</div>
+                    <div class="text-light fw-bold"><%= booking.showDate || 'Today' %> | <%= booking.showTime || '07:30 PM' %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted">Seats Confirmed</div>
+                    <div class="text-success fw-bold fs-6 font-monospace"><%= Array.isArray(booking.seats) ? booking.seats.join(', ') : booking.seats %></div>
+                </div>
+                <div class="col-6">
+                    <div class="text-muted">Total Amount Paid</div>
+                    <div class="text-warning fw-bold fs-6 font-monospace">₹<%= booking.finalAmount || booking.amount %></div>
+                </div>
+                <% if (booking.snackSummary) { %>
+                    <div class="col-12 border-top border-secondary pt-2">
+                        <div class="text-muted">Snacks & Combos</div>
+                        <div class="text-light"><%= booking.snackSummary %></div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-4">
+            <a href="/download-ticket/<%= booking.id || booking._id %>" class="btn btn-cinema px-4 py-3">
+                <i class="fas fa-download me-2"></i> Download PDF Ticket
+            </a>
+            <a href="/ticket/<%= booking.id || booking._id %>" class="btn btn-cinema-outline px-4 py-3">
+                <i class="fas fa-qrcode me-2"></i> View Digital E-Pass
+            </a>
+        </div>
+
+        <div class="text-muted small">
+            <i class="fas fa-envelope text-info me-1"></i> A confirmation receipt has been dispatched to <strong class="text-light"><%= booking.email %></strong>.
+        </div>
+
+        <div class="mt-4 pt-3 border-top border-secondary">
+            <a href="/dashboard?email=<%= encodeURIComponent(booking.email) %>" class="text-decoration-none text-info small me-3">
+                <i class="fas fa-user-circle me-1"></i> View in My Bookings
+            </a>
+            <a href="/" class="text-decoration-none text-muted small">
+                <i class="fas fa-home me-1"></i> Return to Homepage
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,350 @@
+<%- include('partials/header', { title: 'Checkout & Payment - CineVerse Pro' }) %>
+
+<div class="container my-4">
+    <!-- Countdown Timer Banner -->
+    <div class="glass-panel p-3 mb-4 d-flex justify-content-between align-items-center border-warning">
+        <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-hourglass-half text-warning fa-lg"></i>
+            <div>
+                <strong class="text-light">Seats Temporarily Reserved:</strong>
+                <span class="text-muted small ms-1">Please complete checkout before your reservation expires</span>
+            </div>
+        </div>
+        <div class="badge bg-dark border border-warning text-warning fs-6 px-3 py-2 font-monospace" id="countdownTimer">
+            05:00
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Left Column: Customer Details & Payment Options -->
+        <div class="col-lg-7">
+            <form id="paymentForm" action="/process-payment" method="POST">
+                <input type="hidden" name="couponCode" id="hiddenCouponCode" value="<%= summary.appliedCoupon ? summary.appliedCoupon.code : '' %>">
+                <input type="hidden" name="paymentMethod" id="selectedPaymentMethod" value="Card">
+
+                <!-- 1. Customer Information Box -->
+                <div class="glass-panel p-4 mb-4">
+                    <h4 class="text-light mb-3"><i class="fas fa-user-circle text-info me-2"></i> Contact & Ticket Delivery</h4>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Full Name *</label>
+                            <input type="text" name="name" id="custName" class="form-control bg-dark text-light border-secondary" placeholder="e.g. Alex Morgan" required value="Alex Morgan">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Email Address (for E-Ticket) *</label>
+                            <input type="email" name="email" id="custEmail" class="form-control bg-dark text-light border-secondary" placeholder="name@example.com" required value="<%= userEmail || 'alex.morgan@cineverse.io' %>">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-muted small">Phone Number (for SMS & WhatsApp Pass)</label>
+                            <input type="tel" name="phone" class="form-control bg-dark text-light border-secondary" placeholder="+91 98765 43210" value="+91 98765 43210">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Payment Method Selector Tabs -->
+                <div class="glass-panel p-4 mb-4">
+                    <h4 class="text-light mb-3"><i class="fas fa-credit-card text-success me-2"></i> Payment Method</h4>
+                    
+                    <ul class="nav nav-pills mb-4 gap-2 border-bottom border-secondary pb-3" id="paymentTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active btn-cinema px-3 py-2" id="card-tab" data-bs-toggle="pill" data-bs-target="#tab-card" type="button" role="tab" onclick="setPaymentMethod('Credit/Debit Card')">
+                                <i class="fas fa-credit-card me-1"></i> Card
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link btn-cinema-outline px-3 py-2" id="upi-tab" data-bs-toggle="pill" data-bs-target="#tab-upi" type="button" role="tab" onclick="setPaymentMethod('UPI / QR Code')">
+                                <i class="fas fa-qrcode me-1"></i> UPI / QR
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link btn-cinema-outline px-3 py-2" id="netbanking-tab" data-bs-toggle="pill" data-bs-target="#tab-netbanking" type="button" role="tab" onclick="setPaymentMethod('NetBanking')">
+                                <i class="fas fa-university me-1"></i> NetBanking
+                            </button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="paymentTabsContent">
+                        <!-- Card Tab Content -->
+                        <div class="tab-pane fade show active" id="tab-card" role="tabpanel">
+                            <!-- Card Mockup Visual -->
+                            <div class="card-mockup">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="card-chip"></div>
+                                    <i class="fab fa-cc-visa fa-2x text-light"></i>
+                                </div>
+                                <div class="card-number-display" id="cardMockNumber">•••• •••• •••• 4242</div>
+                                <div class="d-flex justify-content-between text-uppercase small">
+                                    <div>
+                                        <div class="text-muted" style="font-size: 0.65rem;">Card Holder</div>
+                                        <div id="cardMockName" class="fw-bold">Alex Morgan</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted" style="font-size: 0.65rem;">Expires</div>
+                                        <div id="cardMockExpiry" class="fw-bold">12/28</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label text-muted small">Card Number</label>
+                                    <input type="text" class="form-control bg-dark text-light border-secondary font-monospace" placeholder="4242 4242 4242 4242" value="4242 4242 4242 4242" id="cardNumberInput">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted small">Expiry Date (MM/YY)</label>
+                                    <input type="text" class="form-control bg-dark text-light border-secondary font-monospace" placeholder="12/28" value="12/28" id="cardExpiryInput">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted small">CVV</label>
+                                    <input type="password" class="form-control bg-dark text-light border-secondary font-monospace" placeholder="•••" value="888" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UPI Tab Content -->
+                        <div class="tab-pane fade text-center py-3" id="tab-upi" role="tabpanel">
+                            <div class="p-3 bg-white d-inline-block rounded shadow mb-3">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=cineverse@upi%26pn=CineVerse%20Cinemas%26am=<%= summary.finalAmount %>" alt="UPI QR Code" style="width: 160px; height: 160px;">
+                            </div>
+                            <h6 class="text-light mb-1">Scan & Pay via any UPI App</h6>
+                            <p class="text-muted small">Supports Google Pay, PhonePe, Paytm, BHIM & CRED</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <span class="badge bg-dark border border-secondary text-light">Google Pay</span>
+                                <span class="badge bg-dark border border-secondary text-light">PhonePe</span>
+                                <span class="badge bg-dark border border-secondary text-light">Paytm</span>
+                            </div>
+                        </div>
+
+                        <!-- NetBanking Tab Content -->
+                        <div class="tab-pane fade" id="tab-netbanking" role="tabpanel">
+                            <p class="text-muted small mb-3">Select your bank for secure NetBanking transfer:</p>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="p-2 bg-dark rounded border border-secondary text-light d-flex align-items-center gap-2 cursor-pointer">
+                                        <i class="fas fa-university text-warning"></i> HDFC Bank
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 bg-dark rounded border border-secondary text-light d-flex align-items-center gap-2 cursor-pointer">
+                                        <i class="fas fa-university text-danger"></i> ICICI Bank
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 bg-dark rounded border border-secondary text-light d-flex align-items-center gap-2 cursor-pointer">
+                                        <i class="fas fa-university text-info"></i> State Bank of India
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 bg-dark rounded border border-secondary text-light d-flex align-items-center gap-2 cursor-pointer">
+                                        <i class="fas fa-university text-success"></i> Axis Bank
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-cinema w-100 py-3 fs-5" id="btnSubmitPayment">
+                    <i class="fas fa-lock me-2"></i> Pay ₹<span id="submitAmountText"><%= summary.finalAmount %></span> & Confirm
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Column: Order Review & Promo Codes -->
+        <div class="col-lg-5">
+            <!-- Promo Code Accordion/Card -->
+            <div class="glass-panel p-4 mb-4">
+                <h5 class="text-light mb-3"><i class="fas fa-tag text-warning me-2"></i> Apply Promo Code</h5>
+                <div class="input-group mb-3">
+                    <input type="text" id="couponInput" class="form-control bg-dark text-light border-secondary text-uppercase font-monospace" placeholder="e.g. CINEMA50" value="<%= summary.appliedCoupon ? summary.appliedCoupon.code : '' %>">
+                    <button class="btn btn-cinema px-3" type="button" onclick="applyCouponCode()">Apply</button>
+                </div>
+                
+                <div id="couponFeedback" class="small mb-3 <%= summary.appliedCoupon ? 'text-success' : '' %>">
+                    <%= summary.couponMessage %>
+                </div>
+
+                <!-- Available Coupons Badges -->
+                <div class="d-flex flex-column gap-2">
+                    <% coupons.forEach(c => { %>
+                        <div class="p-2 rounded border border-secondary d-flex justify-content-between align-items-center cursor-pointer" style="background: rgba(15, 23, 42, 0.4);" onclick="useCoupon('<%= c.code %>')">
+                            <div>
+                                <span class="badge bg-primary text-dark font-monospace"><%= c.code %></span>
+                                <small class="text-muted ms-1"><%= c.description %></small>
+                            </div>
+                            <span class="text-info small fw-bold">Apply</span>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <!-- Complete Invoice Review -->
+            <div class="glass-panel p-4">
+                <div class="d-flex gap-3 mb-3 pb-3 border-bottom border-secondary">
+                    <img src="<%= movie.posterUrl %>" alt="<%= movie.title %>" class="rounded" style="width: 70px; height: 95px; object-fit: cover;">
+                    <div>
+                        <span class="badge bg-info text-dark mb-1"><%= show.screenType %></span>
+                        <h5 class="text-light mb-1"><%= movie.title %></h5>
+                        <div class="text-muted small"><%= show.theater %></div>
+                        <div class="text-warning small font-monospace"><%= show.date %> at <%= show.time %></div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column gap-2 small text-muted mb-3">
+                    <div class="d-flex justify-content-between">
+                        <span>Seats (<%= seats.length %>)</span>
+                        <span class="text-light font-monospace fw-bold"><%= seats.join(', ') %></span>
+                    </div>
+                    <% summary.seatDetails.forEach(s => { %>
+                        <div class="d-flex justify-content-between ps-2" style="font-size: 0.8rem;">
+                            <span>Seat <%= s.id %> (<%= s.tier.toUpperCase() %>)</span>
+                            <span class="font-monospace">₹<%= s.price %></span>
+                        </div>
+                    <% }); %>
+
+                    <% if (summary.snackDetails && summary.snackDetails.length > 0) { %>
+                        <div class="border-top border-secondary pt-2 mt-1">
+                            <div class="d-flex justify-content-between text-light">
+                                <span>F&B Snacks & Combos</span>
+                                <span class="font-monospace">₹<%= summary.snacksTotal %></span>
+                            </div>
+                            <% summary.snackDetails.forEach(sn => { %>
+                                <div class="d-flex justify-content-between ps-2" style="font-size: 0.8rem;">
+                                    <span><%= sn.name %> x<%= sn.qty %></span>
+                                    <span class="font-monospace">₹<%= sn.total %></span>
+                                </div>
+                            <% }); %>
+                        </div>
+                    <% } %>
+                </div>
+
+                <!-- Financial Breakdown -->
+                <div class="border-top border-secondary pt-3 d-flex flex-column gap-2 small">
+                    <div class="d-flex justify-content-between text-muted">
+                        <span>Subtotal</span>
+                        <span class="font-monospace text-light">₹<%= summary.subtotal %></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between text-success" id="discountRow" style="<%= summary.discountAmount > 0 ? '' : 'display: none;' %>">
+                        <span>Promo Discount (<span id="discountCodeText"><%= summary.appliedCoupon ? summary.appliedCoupon.code : '' %></span>)</span>
+                        <span class="font-monospace" id="discountAmountText">- ₹<%= summary.discountAmount %></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between text-muted">
+                        <span>Convenience Fee (incl. 18% GST)</span>
+                        <span class="font-monospace text-light">₹<%= summary.convenienceFee + summary.gstAmount %></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top border-secondary mt-2">
+                        <h5 class="text-light mb-0">Grand Total</h5>
+                        <h3 class="text-warning mb-0 font-monospace" id="finalTotalDisplay">₹<%= summary.finalAmount %></h3>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3 text-muted small" style="font-size: 0.75rem;">
+                    <i class="fas fa-shield-alt text-success me-1"></i> 256-Bit SSL Encrypted Simulated Checkout
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SHOW_ID = '<%= show.id %>';
+    const SEATS = <%- JSON.stringify(seats) %>;
+    const SNACKS = <%- JSON.stringify(summary.snackDetails || []) %>;
+
+    // 1. Countdown Timer (5 Minutes)
+    let timeLeft = 300;
+    const timerElem = document.getElementById('countdownTimer');
+
+    const countdownInterval = setInterval(() => {
+        timeLeft--;
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        timerElem.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            alert('Your seat reservation time has expired. Please select your seats again.');
+            window.location.href = '/book?show=' + SHOW_ID;
+        }
+    }, 1000);
+
+    // 2. Payment Method Switcher
+    function setPaymentMethod(method) {
+        document.getElementById('selectedPaymentMethod').value = method;
+        document.querySelectorAll('#paymentTabs button').forEach(b => {
+            b.className = 'nav-link btn-cinema-outline px-3 py-2';
+        });
+        if (event && event.target) {
+            event.target.closest('button').className = 'nav-link active btn-cinema px-3 py-2';
+        }
+    }
+
+    // 3. Live Card Mockup Mirroring
+    document.getElementById('custName').addEventListener('input', function() {
+        document.getElementById('cardMockName').textContent = this.value || 'CARD HOLDER';
+    });
+
+    document.getElementById('cardNumberInput').addEventListener('input', function() {
+        document.getElementById('cardMockNumber').textContent = this.value || '•••• •••• •••• 4242';
+    });
+
+    document.getElementById('cardExpiryInput').addEventListener('input', function() {
+        document.getElementById('cardMockExpiry').textContent = this.value || '12/28';
+    });
+
+    // 4. Coupon Code Application
+    function useCoupon(code) {
+        document.getElementById('couponInput').value = code;
+        applyCouponCode();
+    }
+
+    async function applyCouponCode() {
+        const code = document.getElementById('couponInput').value.trim();
+        const feedback = document.getElementById('couponFeedback');
+        feedback.textContent = 'Validating promo code...';
+        feedback.className = 'small mb-3 text-info';
+
+        try {
+            const res = await fetch('/apply-coupon', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code, showId: SHOW_ID, seats: SEATS, snacks: SNACKS })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                feedback.textContent = data.message;
+                feedback.className = 'small mb-3 text-success';
+                document.getElementById('hiddenCouponCode').value = code;
+                document.getElementById('discountRow').style.display = 'flex';
+                document.getElementById('discountCodeText').textContent = code;
+                document.getElementById('discountAmountText').textContent = `- ₹${data.discountAmount}`;
+                document.getElementById('finalTotalDisplay').textContent = `₹${data.finalAmount}`;
+                document.getElementById('submitAmountText').textContent = data.finalAmount;
+                showToast(`Promo code ${code} applied! Saved ₹${data.discountAmount}`, 'success');
+            } else {
+                feedback.textContent = data.message;
+                feedback.className = 'small mb-3 text-danger';
+                document.getElementById('hiddenCouponCode').value = '';
+                document.getElementById('discountRow').style.display = 'none';
+            }
+        } catch (e) {
+            console.error('Coupon error', e);
+            feedback.textContent = 'Failed to apply coupon.';
+            feedback.className = 'small mb-3 text-danger';
+        }
+    }
+
+    // 5. Submit Form with Loading Spinner
+    document.getElementById('paymentForm').addEventListener('submit', function() {
+        const btn = document.getElementById('btnSubmitPayment');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Processing Payment & Generating Ticket...';
+    });
+</script>
+
+<%- include('partials/footer') %>

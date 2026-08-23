@@ -1,0 +1,38 @@
+[
+  {
+    "id": "snack-1",
+    "name": "Jumbo Caramel Popcorn",
+    "category": "Popcorn",
+    "description": "Warm, crispy, freshly popped gourmet caramel popcorn (120g)",
+    "price": 180,
+    "image": "🍿",
+    "badge": "Bestseller"
+  },
+  {
+    "id": "snack-2",
+    "name": "Loaded Cheese Nachos",
+    "category": "Snacks",
+    "description": "Crispy corn tortilla chips with hot melted cheddar & jalapenos",
+    "price": 210,
+    "image": "🧀",
+    "badge": "Popular"
+  },
+  {
+    "id": "snack-3",
+    "name": "Chilled Pepsi Zero (600ml)",
+    "category": "Beverage",
+    "description": "Ice cold carbonated soft drink served in cinema cup",
+    "price": 120,
+    "image": "🥤",
+    "badge": ""
+  },
+  {
+    "id": "snack-4",
+    "name": "Ultimate Couple Movie Combo",
+    "category": "Combo",
+    "description": "1 Large Popcorn + 2 Cold Drinks + 1 Nachos Platter (Save ₹120)",
+    "price": 390,
+    "image": "🎬",
+    "badge": "Save 25%"
+  }
+]

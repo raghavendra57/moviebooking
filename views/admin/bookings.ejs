@@ -1,0 +1,103 @@
+<%- include('../partials/header', { title: 'All Bookings - CineVerse Admin' }) %>
+
+<div class="container my-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+        <div>
+            <a href="/admin" class="text-info small text-decoration-none mb-1 d-inline-block">← Back to Analytics</a>
+            <h2 class="text-light mb-0">📑 All Customer Bookings (<%= bookings.length %>)</h2>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a href="/admin/export/csv" class="btn btn-cinema">
+                <i class="fas fa-file-csv me-1"></i> Export to CSV
+            </a>
+        </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="glass-panel p-3 mb-4">
+        <form class="row g-3 align-items-center" action="/admin/bookings" method="GET">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark border-secondary text-muted"><i class="fas fa-search"></i></span>
+                    <input type="text" name="q" class="form-control bg-dark text-light border-secondary" placeholder="Search by Booking ID, customer name, email, or movie..." value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select name="status" class="form-select bg-dark text-light border-secondary">
+                    <option value="all" <%= statusFilter === 'all' ? 'selected' : '' %>>All Statuses</option>
+                    <option value="Confirmed" <%= statusFilter === 'Confirmed' ? 'selected' : '' %>>Confirmed</option>
+                    <option value="Cancelled" <%= statusFilter === 'Cancelled' ? 'selected' : '' %>>Cancelled</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-cinema w-100">Filter</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bookings Data Table -->
+    <div class="glass-panel p-4">
+        <div class="table-responsive">
+            <table class="table table-dark table-hover mb-0" style="background: transparent;">
+                <thead>
+                    <tr class="text-muted small border-secondary">
+                        <th>Booking ID</th>
+                        <th>Customer</th>
+                        <th>Movie & Show</th>
+                        <th>Seats</th>
+                        <th>Total Amount</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (bookings && bookings.length > 0) { %>
+                        <% bookings.forEach(b => { 
+                            const isCancelled = b.status === 'Cancelled';
+                        %>
+                            <tr class="border-secondary align-middle">
+                                <td class="font-monospace text-warning">#<%= b.id || b._id %></td>
+                                <td>
+                                    <div class="text-light fw-bold"><%= b.name %></div>
+                                    <small class="text-muted"><%= b.email %></small>
+                                </td>
+                                <td>
+                                    <div class="text-light"><%= b.movieTitle || b.movie %></div>
+                                    <small class="text-muted"><%= b.showDate || 'Today' %> | <%= b.showTime || '07:30 PM' %></small>
+                                </td>
+                                <td class="font-monospace text-info"><%= Array.isArray(b.seats) ? b.seats.join(', ') : b.seats %></td>
+                                <td class="font-monospace fw-bold text-light">₹<%= b.finalAmount || b.amount %></td>
+                                <td>
+                                    <span class="badge bg-dark border border-secondary text-light"><%= b.paymentMethod || 'Card' %></span>
+                                </td>
+                                <td>
+                                    <span class="badge <%= isCancelled ? 'bg-danger' : 'bg-success' %>">
+                                        <%= b.status || 'Confirmed' %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <a href="/ticket/<%= b.id || b._id %>" class="btn btn-sm btn-cinema-outline py-1 px-2" title="View E-Pass">
+                                            <i class="fas fa-qrcode"></i>
+                                        </a>
+                                        <a href="/download-ticket/<%= b.id || b._id %>" class="btn btn-sm btn-cinema py-1 px-2" title="Download PDF">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="8" class="text-center text-muted py-5">No bookings match the specified filter criteria.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

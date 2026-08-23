@@ -1,0 +1,32 @@
+[
+  {
+    "code": "CINEMA50",
+    "discountType": "flat",
+    "amount": 50,
+    "minOrder": 300,
+    "description": "Flat ₹50 OFF on all ticket bookings above ₹300"
+  },
+  {
+    "code": "SUPER20",
+    "discountType": "percentage",
+    "amount": 20,
+    "maxDiscount": 150,
+    "minOrder": 400,
+    "description": "20% OFF up to ₹150 for CineVerse members"
+  },
+  {
+    "code": "STUDENT15",
+    "discountType": "percentage",
+    "amount": 15,
+    "maxDiscount": 100,
+    "minOrder": 250,
+    "description": "15% Student Discount with verified ID"
+  },
+  {
+    "code": "POPCORNFREE",
+    "discountType": "flat",
+    "amount": 100,
+    "minOrder": 600,
+    "description": "Flat ₹100 Snack discount on bookings above ₹600"
+  }
+]

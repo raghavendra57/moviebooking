@@ -1,0 +1,135 @@
+<%- include('partials/header', { title: movie.title + ' - Showtimes & Tickets' }) %>
+
+<div class="container my-4">
+    <!-- Movie Header Banner -->
+    <div class="hero-spotlight" style="background-image: url('<%= movie.backdropUrl || movie.posterUrl %>'); min-height: 420px;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" style="max-width: 800px;">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="badge bg-danger"><%= movie.certification %></span>
+                <% (movie.formats || []).forEach(f => { %>
+                    <span class="badge bg-dark border border-secondary"><%= f %></span>
+                <% }); %>
+            </div>
+            <h1 class="hero-title mb-2"><%= movie.title %></h1>
+            <p class="text-info font-italic mb-3">"<%= movie.tagline %>"</p>
+            
+            <div class="hero-meta">
+                <span><i class="fas fa-star text-warning"></i> <strong><%= movie.rating %>/10</strong> IMDb</span>
+                <span><i class="far fa-clock"></i> <%= movie.duration %></span>
+                <span><i class="fas fa-language"></i> <%= movie.language %></span>
+                <span><i class="fas fa-calendar-alt"></i> Released: <%= movie.releaseDate %></span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+                <button class="btn btn-cinema-outline" onclick="playTrailer('<%= movie.trailerYoutubeId %>', '<%= movie.title %>')">
+                    <i class="fas fa-play text-danger me-2"></i> Watch Trailer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Left Column: Synopsis & Cast Info -->
+        <div class="col-lg-4">
+            <div class="glass-panel p-4 mb-4">
+                <h4 class="text-light mb-3"><i class="fas fa-info-circle text-info me-2"></i> About the Movie</h4>
+                <p class="text-muted small mb-4"><%= movie.synopsis %></p>
+
+                <h6 class="text-light mb-2"><i class="fas fa-video text-warning me-2"></i> Director</h6>
+                <p class="text-info small mb-4 font-monospace"><%= movie.director %></p>
+
+                <h6 class="text-light mb-2"><i class="fas fa-users text-primary me-2"></i> Star Cast</h6>
+                <div class="d-flex flex-wrap gap-2">
+                    <% (movie.cast || []).forEach(actor => { %>
+                        <span class="badge bg-dark border border-secondary text-light py-2 px-3 font-monospace small">
+                            <i class="fas fa-user-circle me-1 text-muted"></i> <%= actor %>
+                        </span>
+                    <% }); %>
+                </div>
+            </div>
+
+            <!-- Cinema Experience Badges -->
+            <div class="glass-panel p-4">
+                <h5 class="text-light mb-3">Cinema Amenities</h5>
+                <ul class="list-unstyled small text-muted d-flex flex-column gap-2 mb-0">
+                    <li><i class="fas fa-check-circle text-success me-2"></i> 4K High Dynamic Range Projection</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i> Dolby Atmos 64-Channel Spatial Audio</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i> Luxury Recliner Lounges with USB Charging</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i> In-Seat Gourmet Snack Delivery Service</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Column: Date Tabs & Theater Showtimes -->
+        <div class="col-lg-8">
+            <div class="glass-panel p-4">
+                <h3 class="text-light mb-3"><i class="fas fa-calendar-check text-info me-2"></i> Select Date & Showtime</h3>
+                
+                <!-- Date Selection Navigation Tabs -->
+                <% if (availableDates && availableDates.length > 0) { %>
+                    <ul class="nav nav-pills mb-4 gap-2 border-bottom border-secondary pb-3" id="dateTabs" role="tablist">
+                        <% availableDates.forEach((dateStr, idx) => { 
+                            const d = new Date(dateStr + 'T00:00:00');
+                            const dayName = idx === 0 ? 'Today' : (idx === 1 ? 'Tomorrow' : d.toLocaleDateString('en-US', { weekday: 'short' }));
+                            const monthDay = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                        %>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link <%= idx === 0 ? 'active btn-cinema' : 'btn-cinema-outline' %> text-center px-4 py-2" id="tab-<%= idx %>" data-bs-toggle="pill" data-bs-target="#content-<%= idx %>" type="button" role="tab">
+                                    <div class="fw-bold"><%= dayName %></div>
+                                    <small class="opacity-75"><%= monthDay %></small>
+                                </button>
+                            </li>
+                        <% }); %>
+                    </ul>
+
+                    <!-- Showtimes Content per Date -->
+                    <div class="tab-content" id="dateTabsContent">
+                        <% availableDates.forEach((dateStr, idx) => { 
+                            const theatersForDate = showsByDate[dateStr] || {};
+                            const theaterNames = Object.keys(theatersForDate);
+                        %>
+                            <div class="tab-pane fade <%= idx === 0 ? 'show active' : '' %>" id="content-<%= idx %>" role="tabpanel">
+                                <% if (theaterNames.length > 0) { %>
+                                    <div class="d-flex flex-column gap-4">
+                                        <% theaterNames.forEach(theaterName => { 
+                                            const theaterData = theatersForDate[theaterName];
+                                        %>
+                                            <div class="p-3 rounded border" style="background: rgba(15, 23, 42, 0.6); border-color: var(--border-glass) !important;">
+                                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
+                                                    <div>
+                                                        <h5 class="text-light mb-0"><%= theaterName %></h5>
+                                                        <span class="badge bg-info text-dark mt-1"><%= theaterData.screenType %></span>
+                                                        <span class="text-muted small ms-2"><i class="fas fa-map-marker-alt"></i> CineVerse Grand Mall, Central Wing</span>
+                                                    </div>
+                                                    <span class="text-muted small"><i class="fas fa-ticket-alt text-warning"></i> Cancellation Available</span>
+                                                </div>
+
+                                                <!-- Showtime Buttons -->
+                                                <div class="d-flex flex-wrap gap-3">
+                                                    <% theaterData.shows.forEach(show => { %>
+                                                        <a href="/book?show=<%= show.id %>" class="btn btn-outline-info text-start p-2 px-3 rounded text-decoration-none transition-hover">
+                                                            <div class="fw-bold text-light"><%= show.time %></div>
+                                                            <div class="text-warning small font-monospace">₹<%= show.basePrice %></div>
+                                                            <small class="text-muted" style="font-size: 0.7rem;"><%= show.slotLabel %></small>
+                                                        </a>
+                                                    <% }); %>
+                                                </div>
+                                            </div>
+                                        <% }); %>
+                                    </div>
+                                <% } else { %>
+                                    <p class="text-muted text-center py-4">No showtimes scheduled for this date.</p>
+                                <% } %>
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } else { %>
+                    <p class="text-muted">No upcoming shows available for this movie.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

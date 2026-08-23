@@ -1,0 +1,201 @@
+[
+  {
+    "id": "mov-1",
+    "title": "Oppenheimer",
+    "tagline": "The world forever changes.",
+    "genre": [
+      "Biography",
+      "Drama",
+      "History"
+    ],
+    "language": "English (Dolby Atmos)",
+    "rating": 8.9,
+    "duration": "3h 00m",
+    "releaseDate": "2023-07-21",
+    "certification": "A (18+)",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Matt Damon",
+      "Robert Downey Jr."
+    ],
+    "synopsis": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/fm6K9vYqq0YQ23Q29z8ecJ09LRU.jpg",
+    "trailerYoutubeId": "uYPbbksJxIg",
+    "formats": [
+      "IMAX 70mm",
+      "Dolby Atmos",
+      "4DX",
+      "2D"
+    ],
+    "featured": true,
+    "basePrice": 280
+  },
+  {
+    "id": "mov-2",
+    "title": "Dune: Part Two",
+    "tagline": "Long live the fighters.",
+    "genre": [
+      "Sci-Fi",
+      "Adventure",
+      "Action"
+    ],
+    "language": "English / Hindi",
+    "rating": 8.6,
+    "duration": "2h 46m",
+    "releaseDate": "2024-03-01",
+    "certification": "UA 16+",
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Timothée Chalamet",
+      "Zendaya",
+      "Rebecca Ferguson",
+      "Javier Bardem"
+    ],
+    "synopsis": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5200fr.jpg",
+    "trailerYoutubeId": "Way9Dexny3w",
+    "formats": [
+      "IMAX 3D",
+      "4DX",
+      "Dolby Atmos"
+    ],
+    "featured": true,
+    "basePrice": 320
+  },
+  {
+    "id": "mov-3",
+    "title": "Interstellar",
+    "tagline": "Mankind was born on Earth. It was never meant to die here.",
+    "genre": [
+      "Sci-Fi",
+      "Drama",
+      "Adventure"
+    ],
+    "language": "English",
+    "rating": 8.7,
+    "duration": "2h 49m",
+    "releaseDate": "2014-11-07",
+    "certification": "UA",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain",
+      "Michael Caine"
+    ],
+    "synopsis": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/xJHokMbljvjADYdit5fK5VQsXEG.jpg",
+    "trailerYoutubeId": "zSWdZVtXT7E",
+    "formats": [
+      "IMAX 3D",
+      "Dolby Atmos",
+      "2D"
+    ],
+    "featured": true,
+    "basePrice": 260
+  },
+  {
+    "id": "mov-4",
+    "title": "The Dark Knight",
+    "tagline": "Welcome to a world without rules.",
+    "genre": [
+      "Action",
+      "Crime",
+      "Drama"
+    ],
+    "language": "English / Hindi",
+    "rating": 9,
+    "duration": "2h 32m",
+    "releaseDate": "2008-07-18",
+    "certification": "UA",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Christian Bale",
+      "Heath Ledger",
+      "Aaron Eckhart",
+      "Michael Caine"
+    ],
+    "synopsis": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg",
+    "trailerYoutubeId": "EXeTwQWrcwY",
+    "formats": [
+      "IMAX 2D",
+      "Dolby Atmos",
+      "2D"
+    ],
+    "featured": false,
+    "basePrice": 250
+  },
+  {
+    "id": "mov-5",
+    "title": "Inception",
+    "tagline": "Your mind is the scene of the crime.",
+    "genre": [
+      "Action",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "language": "English",
+    "rating": 8.8,
+    "duration": "2h 28m",
+    "releaseDate": "2010-07-16",
+    "certification": "UA",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Elliot Page",
+      "Tom Hardy"
+    ],
+    "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/s3TBrRGB1iav7gFOCNx3H31MoES.jpg",
+    "trailerYoutubeId": "YoHD9XEInc0",
+    "formats": [
+      "IMAX 2D",
+      "Dolby Atmos",
+      "2D"
+    ],
+    "featured": false,
+    "basePrice": 240
+  },
+  {
+    "id": "mov-6",
+    "title": "Spider-Man: Across the Spider-Verse",
+    "tagline": "It's how you wear the mask that matters.",
+    "genre": [
+      "Animation",
+      "Action",
+      "Adventure"
+    ],
+    "language": "English / Hindi / Tamil",
+    "rating": 8.7,
+    "duration": "2h 20m",
+    "releaseDate": "2023-06-02",
+    "certification": "U",
+    "director": "Joaquim Dos Santos, Kemp Powers",
+    "cast": [
+      "Shameik Moore",
+      "Hailee Steinfeld",
+      "Oscar Isaac",
+      "Daniel Kaluuya"
+    ],
+    "synopsis": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    "backdropUrl": "https://image.tmdb.org/t/p/original/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg",
+    "trailerYoutubeId": "cqGjhVJWtEg",
+    "formats": [
+      "3D 4DX",
+      "Dolby Atmos",
+      "2D"
+    ],
+    "featured": true,
+    "basePrice": 290
+  }
+]

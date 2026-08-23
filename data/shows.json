@@ -1,0 +1,2306 @@
+[
+  {
+    "id": "show-1",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 321,
+    "tierPrices": {
+      "vip": 482,
+      "premium": 369,
+      "standard": 321
+    }
+  },
+  {
+    "id": "show-2",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 416,
+    "tierPrices": {
+      "vip": 624,
+      "premium": 478,
+      "standard": 416
+    }
+  },
+  {
+    "id": "show-3",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 306,
+    "tierPrices": {
+      "vip": 459,
+      "premium": 352,
+      "standard": 306
+    }
+  },
+  {
+    "id": "show-4",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 386,
+    "tierPrices": {
+      "vip": 579,
+      "premium": 444,
+      "standard": 386
+    }
+  },
+  {
+    "id": "show-5",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 345,
+    "tierPrices": {
+      "vip": 518,
+      "premium": 397,
+      "standard": 345
+    }
+  },
+  {
+    "id": "show-6",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 447,
+    "tierPrices": {
+      "vip": 671,
+      "premium": 514,
+      "standard": 447
+    }
+  },
+  {
+    "id": "show-7",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 266,
+    "tierPrices": {
+      "vip": 399,
+      "premium": 306,
+      "standard": 266
+    }
+  },
+  {
+    "id": "show-8",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 336,
+    "tierPrices": {
+      "vip": 504,
+      "premium": 386,
+      "standard": 336
+    }
+  },
+  {
+    "id": "show-9",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 359,
+    "tierPrices": {
+      "vip": 539,
+      "premium": 413,
+      "standard": 359
+    }
+  },
+  {
+    "id": "show-10",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 454,
+    "tierPrices": {
+      "vip": 681,
+      "premium": 522,
+      "standard": 454
+    }
+  },
+  {
+    "id": "show-11",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 274,
+    "tierPrices": {
+      "vip": 411,
+      "premium": 315,
+      "standard": 274
+    }
+  },
+  {
+    "id": "show-12",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 354,
+    "tierPrices": {
+      "vip": 531,
+      "premium": 407,
+      "standard": 354
+    }
+  },
+  {
+    "id": "show-13",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 386,
+    "tierPrices": {
+      "vip": 579,
+      "premium": 444,
+      "standard": 386
+    }
+  },
+  {
+    "id": "show-14",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 487,
+    "tierPrices": {
+      "vip": 731,
+      "premium": 560,
+      "standard": 487
+    }
+  },
+  {
+    "id": "show-15",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 238,
+    "tierPrices": {
+      "vip": 357,
+      "premium": 274,
+      "standard": 238
+    }
+  },
+  {
+    "id": "show-16",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 308,
+    "tierPrices": {
+      "vip": 462,
+      "premium": 354,
+      "standard": 308
+    }
+  },
+  {
+    "id": "show-17",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 321,
+    "tierPrices": {
+      "vip": 482,
+      "premium": 369,
+      "standard": 321
+    }
+  },
+  {
+    "id": "show-18",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 416,
+    "tierPrices": {
+      "vip": 624,
+      "premium": 478,
+      "standard": 416
+    }
+  },
+  {
+    "id": "show-19",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 306,
+    "tierPrices": {
+      "vip": 459,
+      "premium": 352,
+      "standard": 306
+    }
+  },
+  {
+    "id": "show-20",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 386,
+    "tierPrices": {
+      "vip": 579,
+      "premium": 444,
+      "standard": 386
+    }
+  },
+  {
+    "id": "show-21",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 345,
+    "tierPrices": {
+      "vip": 518,
+      "premium": 397,
+      "standard": 345
+    }
+  },
+  {
+    "id": "show-22",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 447,
+    "tierPrices": {
+      "vip": 671,
+      "premium": 514,
+      "standard": 447
+    }
+  },
+  {
+    "id": "show-23",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 266,
+    "tierPrices": {
+      "vip": 399,
+      "premium": 306,
+      "standard": 266
+    }
+  },
+  {
+    "id": "show-24",
+    "movieId": "mov-1",
+    "movieTitle": "Oppenheimer",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 336,
+    "tierPrices": {
+      "vip": 504,
+      "premium": 386,
+      "standard": 336
+    }
+  },
+  {
+    "id": "show-25",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 367,
+    "tierPrices": {
+      "vip": 551,
+      "premium": 422,
+      "standard": 367
+    }
+  },
+  {
+    "id": "show-26",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 475,
+    "tierPrices": {
+      "vip": 713,
+      "premium": 546,
+      "standard": 475
+    }
+  },
+  {
+    "id": "show-27",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 350,
+    "tierPrices": {
+      "vip": 525,
+      "premium": 402,
+      "standard": 350
+    }
+  },
+  {
+    "id": "show-28",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 442,
+    "tierPrices": {
+      "vip": 663,
+      "premium": 508,
+      "standard": 442
+    }
+  },
+  {
+    "id": "show-29",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 394,
+    "tierPrices": {
+      "vip": 591,
+      "premium": 453,
+      "standard": 394
+    }
+  },
+  {
+    "id": "show-30",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 510,
+    "tierPrices": {
+      "vip": 765,
+      "premium": 587,
+      "standard": 510
+    }
+  },
+  {
+    "id": "show-31",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 304,
+    "tierPrices": {
+      "vip": 456,
+      "premium": 350,
+      "standard": 304
+    }
+  },
+  {
+    "id": "show-32",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 384,
+    "tierPrices": {
+      "vip": 576,
+      "premium": 442,
+      "standard": 384
+    }
+  },
+  {
+    "id": "show-33",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 410,
+    "tierPrices": {
+      "vip": 615,
+      "premium": 471,
+      "standard": 410
+    }
+  },
+  {
+    "id": "show-34",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 518,
+    "tierPrices": {
+      "vip": 777,
+      "premium": 596,
+      "standard": 518
+    }
+  },
+  {
+    "id": "show-35",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 313,
+    "tierPrices": {
+      "vip": 470,
+      "premium": 360,
+      "standard": 313
+    }
+  },
+  {
+    "id": "show-36",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 405,
+    "tierPrices": {
+      "vip": 608,
+      "premium": 466,
+      "standard": 405
+    }
+  },
+  {
+    "id": "show-37",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 441,
+    "tierPrices": {
+      "vip": 662,
+      "premium": 507,
+      "standard": 441
+    }
+  },
+  {
+    "id": "show-38",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 557,
+    "tierPrices": {
+      "vip": 836,
+      "premium": 641,
+      "standard": 557
+    }
+  },
+  {
+    "id": "show-39",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 272,
+    "tierPrices": {
+      "vip": 408,
+      "premium": 313,
+      "standard": 272
+    }
+  },
+  {
+    "id": "show-40",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 352,
+    "tierPrices": {
+      "vip": 528,
+      "premium": 405,
+      "standard": 352
+    }
+  },
+  {
+    "id": "show-41",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 367,
+    "tierPrices": {
+      "vip": 551,
+      "premium": 422,
+      "standard": 367
+    }
+  },
+  {
+    "id": "show-42",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 475,
+    "tierPrices": {
+      "vip": 713,
+      "premium": 546,
+      "standard": 475
+    }
+  },
+  {
+    "id": "show-43",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 350,
+    "tierPrices": {
+      "vip": 525,
+      "premium": 402,
+      "standard": 350
+    }
+  },
+  {
+    "id": "show-44",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 442,
+    "tierPrices": {
+      "vip": 663,
+      "premium": 508,
+      "standard": 442
+    }
+  },
+  {
+    "id": "show-45",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 394,
+    "tierPrices": {
+      "vip": 591,
+      "premium": 453,
+      "standard": 394
+    }
+  },
+  {
+    "id": "show-46",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 510,
+    "tierPrices": {
+      "vip": 765,
+      "premium": 587,
+      "standard": 510
+    }
+  },
+  {
+    "id": "show-47",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 304,
+    "tierPrices": {
+      "vip": 456,
+      "premium": 350,
+      "standard": 304
+    }
+  },
+  {
+    "id": "show-48",
+    "movieId": "mov-2",
+    "movieTitle": "Dune: Part Two",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 384,
+    "tierPrices": {
+      "vip": 576,
+      "premium": 442,
+      "standard": 384
+    }
+  },
+  {
+    "id": "show-49",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 298,
+    "tierPrices": {
+      "vip": 447,
+      "premium": 343,
+      "standard": 298
+    }
+  },
+  {
+    "id": "show-50",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 386,
+    "tierPrices": {
+      "vip": 579,
+      "premium": 444,
+      "standard": 386
+    }
+  },
+  {
+    "id": "show-51",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 284,
+    "tierPrices": {
+      "vip": 426,
+      "premium": 327,
+      "standard": 284
+    }
+  },
+  {
+    "id": "show-52",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 359,
+    "tierPrices": {
+      "vip": 539,
+      "premium": 413,
+      "standard": 359
+    }
+  },
+  {
+    "id": "show-53",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 320,
+    "tierPrices": {
+      "vip": 480,
+      "premium": 368,
+      "standard": 320
+    }
+  },
+  {
+    "id": "show-54",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 415,
+    "tierPrices": {
+      "vip": 623,
+      "premium": 477,
+      "standard": 415
+    }
+  },
+  {
+    "id": "show-55",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 247,
+    "tierPrices": {
+      "vip": 371,
+      "premium": 284,
+      "standard": 247
+    }
+  },
+  {
+    "id": "show-56",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 312,
+    "tierPrices": {
+      "vip": 468,
+      "premium": 359,
+      "standard": 312
+    }
+  },
+  {
+    "id": "show-57",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 333,
+    "tierPrices": {
+      "vip": 500,
+      "premium": 383,
+      "standard": 333
+    }
+  },
+  {
+    "id": "show-58",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 421,
+    "tierPrices": {
+      "vip": 632,
+      "premium": 484,
+      "standard": 421
+    }
+  },
+  {
+    "id": "show-59",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 254,
+    "tierPrices": {
+      "vip": 381,
+      "premium": 292,
+      "standard": 254
+    }
+  },
+  {
+    "id": "show-60",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 329,
+    "tierPrices": {
+      "vip": 494,
+      "premium": 378,
+      "standard": 329
+    }
+  },
+  {
+    "id": "show-61",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 358,
+    "tierPrices": {
+      "vip": 537,
+      "premium": 412,
+      "standard": 358
+    }
+  },
+  {
+    "id": "show-62",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 452,
+    "tierPrices": {
+      "vip": 678,
+      "premium": 520,
+      "standard": 452
+    }
+  },
+  {
+    "id": "show-63",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 221,
+    "tierPrices": {
+      "vip": 332,
+      "premium": 254,
+      "standard": 221
+    }
+  },
+  {
+    "id": "show-64",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 286,
+    "tierPrices": {
+      "vip": 429,
+      "premium": 329,
+      "standard": 286
+    }
+  },
+  {
+    "id": "show-65",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 298,
+    "tierPrices": {
+      "vip": 447,
+      "premium": 343,
+      "standard": 298
+    }
+  },
+  {
+    "id": "show-66",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 386,
+    "tierPrices": {
+      "vip": 579,
+      "premium": 444,
+      "standard": 386
+    }
+  },
+  {
+    "id": "show-67",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 284,
+    "tierPrices": {
+      "vip": 426,
+      "premium": 327,
+      "standard": 284
+    }
+  },
+  {
+    "id": "show-68",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 359,
+    "tierPrices": {
+      "vip": 539,
+      "premium": 413,
+      "standard": 359
+    }
+  },
+  {
+    "id": "show-69",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 320,
+    "tierPrices": {
+      "vip": 480,
+      "premium": 368,
+      "standard": 320
+    }
+  },
+  {
+    "id": "show-70",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 415,
+    "tierPrices": {
+      "vip": 623,
+      "premium": 477,
+      "standard": 415
+    }
+  },
+  {
+    "id": "show-71",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 247,
+    "tierPrices": {
+      "vip": 371,
+      "premium": 284,
+      "standard": 247
+    }
+  },
+  {
+    "id": "show-72",
+    "movieId": "mov-3",
+    "movieTitle": "Interstellar",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 312,
+    "tierPrices": {
+      "vip": 468,
+      "premium": 359,
+      "standard": 312
+    }
+  },
+  {
+    "id": "show-73",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 287,
+    "tierPrices": {
+      "vip": 431,
+      "premium": 330,
+      "standard": 287
+    }
+  },
+  {
+    "id": "show-74",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 371,
+    "tierPrices": {
+      "vip": 557,
+      "premium": 427,
+      "standard": 371
+    }
+  },
+  {
+    "id": "show-75",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 273,
+    "tierPrices": {
+      "vip": 410,
+      "premium": 314,
+      "standard": 273
+    }
+  },
+  {
+    "id": "show-76",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 345,
+    "tierPrices": {
+      "vip": 518,
+      "premium": 397,
+      "standard": 345
+    }
+  },
+  {
+    "id": "show-77",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 308,
+    "tierPrices": {
+      "vip": 462,
+      "premium": 354,
+      "standard": 308
+    }
+  },
+  {
+    "id": "show-78",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 399,
+    "tierPrices": {
+      "vip": 599,
+      "premium": 459,
+      "standard": 399
+    }
+  },
+  {
+    "id": "show-79",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 238,
+    "tierPrices": {
+      "vip": 357,
+      "premium": 274,
+      "standard": 238
+    }
+  },
+  {
+    "id": "show-80",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 300,
+    "tierPrices": {
+      "vip": 450,
+      "premium": 345,
+      "standard": 300
+    }
+  },
+  {
+    "id": "show-81",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 321,
+    "tierPrices": {
+      "vip": 482,
+      "premium": 369,
+      "standard": 321
+    }
+  },
+  {
+    "id": "show-82",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 405,
+    "tierPrices": {
+      "vip": 608,
+      "premium": 466,
+      "standard": 405
+    }
+  },
+  {
+    "id": "show-83",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 244,
+    "tierPrices": {
+      "vip": 366,
+      "premium": 281,
+      "standard": 244
+    }
+  },
+  {
+    "id": "show-84",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 316,
+    "tierPrices": {
+      "vip": 474,
+      "premium": 363,
+      "standard": 316
+    }
+  },
+  {
+    "id": "show-85",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 344,
+    "tierPrices": {
+      "vip": 516,
+      "premium": 396,
+      "standard": 344
+    }
+  },
+  {
+    "id": "show-86",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 435,
+    "tierPrices": {
+      "vip": 653,
+      "premium": 500,
+      "standard": 435
+    }
+  },
+  {
+    "id": "show-87",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 213,
+    "tierPrices": {
+      "vip": 320,
+      "premium": 245,
+      "standard": 213
+    }
+  },
+  {
+    "id": "show-88",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 275,
+    "tierPrices": {
+      "vip": 413,
+      "premium": 316,
+      "standard": 275
+    }
+  },
+  {
+    "id": "show-89",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 287,
+    "tierPrices": {
+      "vip": 431,
+      "premium": 330,
+      "standard": 287
+    }
+  },
+  {
+    "id": "show-90",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 371,
+    "tierPrices": {
+      "vip": 557,
+      "premium": 427,
+      "standard": 371
+    }
+  },
+  {
+    "id": "show-91",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 273,
+    "tierPrices": {
+      "vip": 410,
+      "premium": 314,
+      "standard": 273
+    }
+  },
+  {
+    "id": "show-92",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 345,
+    "tierPrices": {
+      "vip": 518,
+      "premium": 397,
+      "standard": 345
+    }
+  },
+  {
+    "id": "show-93",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 308,
+    "tierPrices": {
+      "vip": 462,
+      "premium": 354,
+      "standard": 308
+    }
+  },
+  {
+    "id": "show-94",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 399,
+    "tierPrices": {
+      "vip": 599,
+      "premium": 459,
+      "standard": 399
+    }
+  },
+  {
+    "id": "show-95",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 238,
+    "tierPrices": {
+      "vip": 357,
+      "premium": 274,
+      "standard": 238
+    }
+  },
+  {
+    "id": "show-96",
+    "movieId": "mov-4",
+    "movieTitle": "The Dark Knight",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 300,
+    "tierPrices": {
+      "vip": 450,
+      "premium": 345,
+      "standard": 300
+    }
+  },
+  {
+    "id": "show-97",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 275,
+    "tierPrices": {
+      "vip": 413,
+      "premium": 316,
+      "standard": 275
+    }
+  },
+  {
+    "id": "show-98",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 356,
+    "tierPrices": {
+      "vip": 534,
+      "premium": 409,
+      "standard": 356
+    }
+  },
+  {
+    "id": "show-99",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 262,
+    "tierPrices": {
+      "vip": 393,
+      "premium": 301,
+      "standard": 262
+    }
+  },
+  {
+    "id": "show-100",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 331,
+    "tierPrices": {
+      "vip": 497,
+      "premium": 381,
+      "standard": 331
+    }
+  },
+  {
+    "id": "show-101",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 296,
+    "tierPrices": {
+      "vip": 444,
+      "premium": 340,
+      "standard": 296
+    }
+  },
+  {
+    "id": "show-102",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 383,
+    "tierPrices": {
+      "vip": 575,
+      "premium": 440,
+      "standard": 383
+    }
+  },
+  {
+    "id": "show-103",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 228,
+    "tierPrices": {
+      "vip": 342,
+      "premium": 262,
+      "standard": 228
+    }
+  },
+  {
+    "id": "show-104",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 288,
+    "tierPrices": {
+      "vip": 432,
+      "premium": 331,
+      "standard": 288
+    }
+  },
+  {
+    "id": "show-105",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 308,
+    "tierPrices": {
+      "vip": 462,
+      "premium": 354,
+      "standard": 308
+    }
+  },
+  {
+    "id": "show-106",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 389,
+    "tierPrices": {
+      "vip": 584,
+      "premium": 447,
+      "standard": 389
+    }
+  },
+  {
+    "id": "show-107",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 235,
+    "tierPrices": {
+      "vip": 353,
+      "premium": 270,
+      "standard": 235
+    }
+  },
+  {
+    "id": "show-108",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 304,
+    "tierPrices": {
+      "vip": 456,
+      "premium": 350,
+      "standard": 304
+    }
+  },
+  {
+    "id": "show-109",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 331,
+    "tierPrices": {
+      "vip": 497,
+      "premium": 381,
+      "standard": 331
+    }
+  },
+  {
+    "id": "show-110",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 418,
+    "tierPrices": {
+      "vip": 627,
+      "premium": 481,
+      "standard": 418
+    }
+  },
+  {
+    "id": "show-111",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 204,
+    "tierPrices": {
+      "vip": 306,
+      "premium": 235,
+      "standard": 204
+    }
+  },
+  {
+    "id": "show-112",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 264,
+    "tierPrices": {
+      "vip": 396,
+      "premium": 304,
+      "standard": 264
+    }
+  },
+  {
+    "id": "show-113",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 275,
+    "tierPrices": {
+      "vip": 413,
+      "premium": 316,
+      "standard": 275
+    }
+  },
+  {
+    "id": "show-114",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 356,
+    "tierPrices": {
+      "vip": 534,
+      "premium": 409,
+      "standard": 356
+    }
+  },
+  {
+    "id": "show-115",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 262,
+    "tierPrices": {
+      "vip": 393,
+      "premium": 301,
+      "standard": 262
+    }
+  },
+  {
+    "id": "show-116",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 331,
+    "tierPrices": {
+      "vip": 497,
+      "premium": 381,
+      "standard": 331
+    }
+  },
+  {
+    "id": "show-117",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 296,
+    "tierPrices": {
+      "vip": 444,
+      "premium": 340,
+      "standard": 296
+    }
+  },
+  {
+    "id": "show-118",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 383,
+    "tierPrices": {
+      "vip": 575,
+      "premium": 440,
+      "standard": 383
+    }
+  },
+  {
+    "id": "show-119",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 228,
+    "tierPrices": {
+      "vip": 342,
+      "premium": 262,
+      "standard": 228
+    }
+  },
+  {
+    "id": "show-120",
+    "movieId": "mov-5",
+    "movieTitle": "Inception",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 288,
+    "tierPrices": {
+      "vip": 432,
+      "premium": 331,
+      "standard": 288
+    }
+  },
+  {
+    "id": "show-121",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 333,
+    "tierPrices": {
+      "vip": 500,
+      "premium": 383,
+      "standard": 333
+    }
+  },
+  {
+    "id": "show-122",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 431,
+    "tierPrices": {
+      "vip": 647,
+      "premium": 496,
+      "standard": 431
+    }
+  },
+  {
+    "id": "show-123",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 317,
+    "tierPrices": {
+      "vip": 476,
+      "premium": 365,
+      "standard": 317
+    }
+  },
+  {
+    "id": "show-124",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 400,
+    "tierPrices": {
+      "vip": 600,
+      "premium": 460,
+      "standard": 400
+    }
+  },
+  {
+    "id": "show-125",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 357,
+    "tierPrices": {
+      "vip": 536,
+      "premium": 411,
+      "standard": 357
+    }
+  },
+  {
+    "id": "show-126",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 463,
+    "tierPrices": {
+      "vip": 695,
+      "premium": 532,
+      "standard": 463
+    }
+  },
+  {
+    "id": "show-127",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 276,
+    "tierPrices": {
+      "vip": 414,
+      "premium": 317,
+      "standard": 276
+    }
+  },
+  {
+    "id": "show-128",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-23",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 348,
+    "tierPrices": {
+      "vip": 522,
+      "premium": 400,
+      "standard": 348
+    }
+  },
+  {
+    "id": "show-129",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 372,
+    "tierPrices": {
+      "vip": 558,
+      "premium": 428,
+      "standard": 372
+    }
+  },
+  {
+    "id": "show-130",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 470,
+    "tierPrices": {
+      "vip": 705,
+      "premium": 541,
+      "standard": 470
+    }
+  },
+  {
+    "id": "show-131",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 283,
+    "tierPrices": {
+      "vip": 425,
+      "premium": 325,
+      "standard": 283
+    }
+  },
+  {
+    "id": "show-132",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 367,
+    "tierPrices": {
+      "vip": 551,
+      "premium": 422,
+      "standard": 367
+    }
+  },
+  {
+    "id": "show-133",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 399,
+    "tierPrices": {
+      "vip": 599,
+      "premium": 459,
+      "standard": 399
+    }
+  },
+  {
+    "id": "show-134",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 505,
+    "tierPrices": {
+      "vip": 758,
+      "premium": 581,
+      "standard": 505
+    }
+  },
+  {
+    "id": "show-135",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 247,
+    "tierPrices": {
+      "vip": 371,
+      "premium": 284,
+      "standard": 247
+    }
+  },
+  {
+    "id": "show-136",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-24",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 319,
+    "tierPrices": {
+      "vip": 479,
+      "premium": 367,
+      "standard": 319
+    }
+  },
+  {
+    "id": "show-137",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 333,
+    "tierPrices": {
+      "vip": 500,
+      "premium": 383,
+      "standard": 333
+    }
+  },
+  {
+    "id": "show-138",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse IMAX Laser - Screen 1",
+    "screenType": "IMAX 3D",
+    "basePrice": 431,
+    "tierPrices": {
+      "vip": 647,
+      "premium": 496,
+      "standard": 431
+    }
+  },
+  {
+    "id": "show-139",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 317,
+    "tierPrices": {
+      "vip": 476,
+      "premium": 365,
+      "standard": 317
+    }
+  },
+  {
+    "id": "show-140",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Atmos Prime - Screen 2",
+    "screenType": "Dolby Atmos",
+    "basePrice": 400,
+    "tierPrices": {
+      "vip": 600,
+      "premium": 460,
+      "standard": 400
+    }
+  },
+  {
+    "id": "show-141",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "10:15 AM",
+    "slotLabel": "Morning Show",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 357,
+    "tierPrices": {
+      "vip": 536,
+      "premium": 411,
+      "standard": 357
+    }
+  },
+  {
+    "id": "show-142",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "05:30 PM",
+    "slotLabel": "Evening Prime",
+    "theater": "CineVerse 4DX Motion - Screen 3",
+    "screenType": "4DX 3D",
+    "basePrice": 463,
+    "tierPrices": {
+      "vip": 695,
+      "premium": 532,
+      "standard": 463
+    }
+  },
+  {
+    "id": "show-143",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "01:45 PM",
+    "slotLabel": "Matinee",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 276,
+    "tierPrices": {
+      "vip": 414,
+      "premium": 317,
+      "standard": 276
+    }
+  },
+  {
+    "id": "show-144",
+    "movieId": "mov-6",
+    "movieTitle": "Spider-Man: Across the Spider-Verse",
+    "date": "2026-08-25",
+    "time": "09:15 PM",
+    "slotLabel": "Night Show",
+    "theater": "CineVerse Classic - Screen 4",
+    "screenType": "Digital 2D",
+    "basePrice": 348,
+    "tierPrices": {
+      "vip": 522,
+      "premium": 400,
+      "standard": 348
+    }
+  }
+]
